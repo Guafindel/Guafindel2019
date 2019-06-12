@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <style>
+        
+/*
+        나를 감싸고 있는 것 패딩
+        나랑 동등한 것 마진
+*/
+    
+/*    id 선택자*/
+        #header {
+            background-color: aqua;
+            
+            
+            margin: 0 auto;
+/*                 상하 좌우(auto의 개념은 좌우에서만 적용된다.*/
+            
+            width: 500px;
+        }
+        #wrap {
+            background-color: yellow;
+            padding: 20px;
+            margin: 0 auto;
+/*                 상하 좌우(auto의 개념은 좌우에서만 적용된다.*/
+            
+            width: 500px;
+/*          패팅 값이 사이즈에 포함되기 때문에 생각 해둬야 한다.*/
+        }
+        #content {
+            background-color: antiquewhite;
+            margin-bottom: 50px;
+            
+        }
+        #aside {
+            background-color: aquamarine
+        }
+        #footer {
+            background-color: burlywood;
+            margin: 0 auto;
+/*                 상하 좌우(auto의 개념은 좌우에서만 적용된다.*/
+            
+            width: 500px;
+        }
+        
+    </style>
+</head>
+<body>
+   
+    <div id="header">
+        Header 영역
+    </div>
+    <div id="wrap">
+        <div id="content">Content 영역</div>
+        <div id="aside">Aside 영역</div>
+    </div>    
+    <div id="footer">Footer 영역</div>
+    
+</body>
+</html>

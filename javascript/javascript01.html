@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Javascript First</title>
+    <script>
+        //            var pi = 3.141592;
+        //            var radius = 10;
+
+        //            alert('원의 둘레는 : '+pi*2*radius);
+        //            
+        //            alert('JavaScript First\n<img src"images/mini.png">');
+        //            
+        //            alert(10%7);
+        var v; // 1. undefined
+        var num = 10; // 2. number
+        var str = 'Hellow JavaScript'; // 3. string
+        var boolCheck = true; // 4. bool
+        var functionType = function() {}; //5. function
+        var objType = {}; // 6. object
+
+        //        alert(typeof(v));
+        //        alert(typeof(num));
+        //        alert(typeof(str));
+        //        alert(typeof(boolCheck));
+        //        alert(typeof(functionType));
+        //        alert(typeof(objType));
+        
+        var num1 = '31';
+        var num2 = '45a';
+        
+        
+        var number3 = Number(num1);
+//        alert( typeof(number3));
+//        alert(number3);
+        var number4 = Number(num2);
+//        alert(number4); //NaN
+        
+        //javascript 배열
+        
+        var array = [1,2,3,4,5];
+        
+        alert(array);
+        
+        var result = 0;
+        
+        for(var i=0; i<array.length; i++) {
+            result += array[i];
+        }
+        
+        alert(result);
+        
+        var array = [
+            1,
+            'one',
+            false,
+            function(){},
+            {},
+            [1,2,3,4,5]
+            
+        ];
+        
+        alert(array);
+        
+        //객체의 프로퍼티 열거 -> var o : 식별할 수 있는 이름 또는 인덱스
+        for(var o in array) {
+            alert(typeof(array[o]));
+        }
+        
+
+        window.onload = function() {
+
+            var chk = confirm('출력할까용?');
+
+
+            if (chk) {
+                
+                var list = '';
+                list += '<ul>\n';
+                list += '   <li>' + v + ' < /li>\n';
+                list += '   <li>' + num + ' < /li>\n';
+                list += '   <li>' + str + ' < /li>\n';
+                list += '   <li>' + boolCheck + ' < /li>\n';
+                list += '   <li>' + functionType + ' < /li>\n';
+                list += '   <li>' + objType + ' < /li>\n';
+                list += '</ul>\n';
+
+                alert(list);
+                document.body.innerHTML = list;
+           
+            }
+        };
+
+    </script>
+</head>
+
+<body></body></html>
