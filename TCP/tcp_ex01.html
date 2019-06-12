@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>자바스크립트</title>
+    <script>
+    
+        
+            
+            //속성 say에 값 저장.
+            var say = 'hello';
+            
+            function print() {
+                
+                //'hello' 출력
+                console.log(say);
+                
+                //say 값 변경
+                var say = 'world';
+                
+                //변경된 say값 출력
+                console.log(say);  
+                
+                function inner_print() {
+                    
+                    //world 값 출력
+                    console.log(say);;
+                    
+                    //say값은 Bye로 지정
+                    var say = 'Good';
+                    say = 'Bye';
+                    
+                    //Bye값 출력
+                    console.log(say);
+                };
+                
+                //world와 Bye 출력
+                inner_print();
+            
+            };
+            
+            print();
+            
+            //나의 답
+            //hello
+            //world
+            //world
+            //Bye
+            
+            //정답
+            //undefined
+            //world
+            //undefined
+            //Bye
+        
+    </script>
+    <style>
+    
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+    </style>
+    </head>
+    
+    <body>
+    </body>
+    
+</html>
