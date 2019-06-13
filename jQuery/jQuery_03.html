@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+
+
+    </style>
+    <title></title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            var imgPath = $('img').attr('src') //getter
+
+            //alert(imgPath);
+
+
+
+            setTimeout(function() {
+
+                //$('img').attr('width', function(index){
+                //return (index+1)*100;
+                //});
+
+                //$('img').attr({
+                //src:'../html5/ArinInsta/instagram_img/59414599_2410141502555868_1817571809380628865_n.jpg',
+                //width: function(index) {
+                //return (index+1)*100;
+                //}
+
+                //});
+
+                var chk1 = $('input:checkbox').attr('checked');
+                var chk2 = $('input:checkbox').prop('checked');
+
+                //alert(chk1 + ' : ' + chk2);
+
+                //checkek 설정
+                $('input:checkbox').prop('checked', true);
+
+                if (!chk2) {
+                    //alert('개인정보 동의에 체크해주세요.');
+                }
+
+                var href1 = $('a').attr('href');
+                var href2 = $('a').prop('href');
+
+                //alert(href1 +':'+ href2);
+
+                //alert($('a').css('color'))
+
+
+                var text1 = $('h1').html();
+                var text2 = $('h1').text();
+
+                alert(text1 + ':' + text2);
+        
+                //$('h1').html('<i>안녕</i>');
+                $('h1').text('<i>안녕</i>');
+            
+            }, 3000);
+
+
+
+
+        });
+    </script>
+</head>
+
+<body>
+
+    개인정보 동의<input type="checkbox" checked>
+    <br><br><br><br>
+    <a href="jQuery_01_array.html">test</a>
+
+
+    <!--
+        <img width="150" src="../html5/ArinInsta/instagram_img/53586736_817622685277019_2501495164244015548_n.jpg">
+        <img width="150" src="../html5/ArinInsta/instagram_img/53586736_817622685277019_2501495164244015548_n.jpg">
+        <img width="150" src="../html5/ArinInsta/instagram_img/53586736_817622685277019_2501495164244015548_n.jpg">
+        <img width="150" src="../html5/ArinInsta/instagram_img/53586736_817622685277019_2501495164244015548_n.jpg">
+-->
+    <h1>
+        <p>안녕안녕반가워.</p>
+    </h1>
+
+</body></html>
