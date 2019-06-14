@@ -15,8 +15,8 @@
         }
         canvas
         {
-        background: white;
-        
+        background:
+        #eee;
         display:
         block;
         margin:
@@ -31,7 +31,7 @@
 
 <body>
 
-    <canvas id="myCanvas" width="480" height="320" style="border: 3px solid #aaa; border-radius: 10px"></canvas>
+    <canvas id="myCanvas" width="480" height="320"></canvas>
 
 
 
@@ -84,10 +84,6 @@
             drawball();
 
             //캔버스에는 총 4개의 모서리, 즉 4개의 벽이 있다. 공은 맨 처음에 x좌표로는 정중앙 y값으로는 아래에서 약간 위에 위치해 있다. 이 의미는 공의 정중앙 좌표가 그 좌표값에 위치한다는 소리다. 나는 이 좌표값을 dx와 dy로 변할 수 있게 만들었다. y값만을 생각한다면 y의 값이 변하는 순간, 즉 y=y+dy의 값이 0보다 낮아지거나 캔버스의 height값(여기서는 320이지만 어떤 값으로 지정하든 변화를 따라올 수 있게 canvas.height로 지정하는게 좋다.)보다 더 높아지는 순간이 바로 상하 캔버스 벽으로 사라지는 순간이라고 할 수 있다.
-            
-            color = "#" + Math.round(Math.random()*0xFFFFFF).toString(16);
-                ctx.fillStyle =color;
-                ctx.fill();
 
             //y값이 0보다 낮아지는 순간 즉 상단 벽으로 사라지는 순간 dy값을 음수로 변환시키는 코드이다. 만약 상단 벽에 닿는 순간, 즉 y의 값이 음수로 변하는 순간 이 코드가 true되어 dy의 값은 음수로 변할 것이고 위로 향하던 공은 그 순간 아래로 내려가게 될 것이다.
             //if(y+dy<0) {
