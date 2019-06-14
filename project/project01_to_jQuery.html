@@ -332,19 +332,21 @@
                 }
 
                 //새로운 데이터로 객체 생성
-                var newMember = new Member(uId.value, uPw.value, uName.value);
+                var newMember = new Member(userId, userPw, userName);
 
                 //newMember.showData();
 
                 members.push(newMember);
+                alert('정상적으로 입력되었어요.');
+                this.reset();
 
                 localStorage.setItem('members', JSON.stringify(members));
 
-                alert('정상적으로 입력되었다.');
+                
 
                 setListTable();
 
-                regForm.reset();
+                
 
 
                 return false;
@@ -400,7 +402,7 @@
 
                 setListTable();
 
-                editForm.reset();
+                this.reset();
 
                 $('#editBox').css('display','none');
 
@@ -409,10 +411,9 @@
             });
 
             var cBtn = $('#cancel');
-            cBtn.click(function(){
+            $('#cancel').click(function(){
                 $('#editBox').css('display','none');
                 
-                return false;
             });
 
         });
@@ -438,7 +439,7 @@
 
             //alert(newHtml);
 
-            $('#listRow').innerHTML = newHtml;
+            $('#listRow').appendTo(newHtml);
 
 
             //document.getElementById('memberlist').innerHTML = newHtml;
