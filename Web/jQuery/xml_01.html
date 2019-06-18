@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <style>
+           div {
+               border: 1px solid #AAA;
+               border-radius: 5px;
+               background-color: #48dbfb;
+           }
+           h2 {
+               color: white;
+               
+           }
+           h3 {
+               color: white;
+           }
+        
+        </style>
+       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <title>XML parse</title>
+        <script>
+        
+            $(document).ready(function(){
+                
+                var xml = '';
+                xml += '<Class>';
+                xml += '    <class>';
+                xml += '        <name>소종원</name>';
+                xml += '        <num>13</num>';
+                xml += '        <link>https://www.naver.com"</link>';
+                xml += '    </class>';
+                xml += '    <class>';
+                xml += '        <name>이성철</name>';
+                xml += '        <num>17</num>';
+                xml += '        <link>https://www.daum.net</link>';
+                xml += '    </class>';
+                xml += '    <class>';
+                xml += '        <name>김우현</name>';
+                xml += '        <num>23</num>';
+                xml += '        <link>https://google.com</link>';
+                xml += '    </class>';
+                xml += '    <class>';
+                xml += '        <name>김민아</name>';
+                xml += '        <num>34</num>';
+                xml += '        <link>https://www.facebook.com</link>';
+                xml += '    </class>';
+                xml += '    <class>';
+                xml += '        <name>음율</name>';
+                xml += '        <num>27</num>';
+                xml += '        <link>https://wow.inven.co.kr</link>';
+                xml += '    </class>';
+                xml += '</Class>';
+                
+                var xmlDoc = $.parseXML(xml);
+                
+                $(xmlDoc).find('class').each(function(index){
+                    
+                    var name = $(this).find('name').text();
+                    var num = $(this).find('num').text();
+                    var link = $(this).find('link').text();
+                    
+                    var output = '';
+                    output += '<div>';
+                    output += ' <h2>';
+                    output += name;
+                    output += ' </h2>';
+                    output += ' <h3>';
+                    output += ' <a href="'+link+'">'+num+'</a>';
+                    output += ' </h3>';
+                    output += ' <h3>';
+                    output += ' </h3>';
+                    output += '</div>';
+                    
+                    document.body.innerHTML += output;
+                });
+                
+                //1. 문자열 -> xmlDoc(xml 문서로 변환)
+                //2. xml 문서를 jQuery 객체 변환 $(xmlDoc)
+                //3. find() 엘리먼트(테그) 선택
+                //4. .each() 반복처리
+                //5. 데이터 추출 -> text()
+            });
+            
+        </script>
+    </head>
+    <body>
+        
+        
+        
+    </body>
+</html>

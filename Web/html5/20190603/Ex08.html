@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        h1+h2 {
+            color: orange;
+        }
+
+        h1~h2 {
+            background-color: grey;
+        }
+
+        h1:hover {
+            color: yellow;
+            background-color: aqua;
+        }
+
+        /*
+        h2:active {
+            color: bisque;
+            background-color: deepskyblue;
+        }
+*/
+        h1+h2:hover {
+            color: #000000;
+            background-color: orange;
+        }
+
+        h1~h2:active {
+            color: red;
+            background-color: cadetblue;
+        }
+
+        input:disabled {
+            background-color: black;
+        }
+
+        input:focus {
+            border-style: ridge;
+        }
+
+        #menu {
+            display: none;
+        }
+
+        input[type=checkbox] {
+            display: none;
+        }
+
+        input[type=checkbox]:checked~#menu {
+            display: block;
+        }
+
+        label {
+            cursor: pointer;
+        }
+
+        label:hover {
+            background-color: aqua;
+        }
+
+        #cir {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            border-radius: 50px;
+        }
+
+        img {
+            width: 100;
+            height: 100px;
+            border-radius: 50px;
+        }
+        #gnb {
+            list-style: none;
+            overflow: hidden;
+        }
+        #gnb>li {
+            float: left;
+/*          padding: 15px 20px;*/
+            border: 1px solid #DDDDDD;
+            margin-left: -1px;
+        }
+        #gnb>li:first-child {
+            border-radius: 10px 0px 0px 10px;
+            background-color: bisque;
+        }
+         #gnb>li:last-child {
+            border-radius: 0px 10px 10px 0px;
+            background-color: bisque;
+        }
+        #gnb>li:nth-child(2n) {
+            background-color: aquamarine;
+        }
+        #gnb>li:nth-child(2n+1) {
+            background-color: cornflowerblue;
+        }
+        #gnb>li:hover {
+            background-color: darksalmon;
+        }
+        ul>li>a {
+            text-decoration: none;
+        }
+        a {
+            text-decoration: none;
+            padding: 25px 30px;
+        }
+/*
+        a:hover {
+            color: black;
+        }
+*/
+        a:visited {
+            color: black;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+   <ul id="gnb">
+       <li><a href="http://www.naver.com">menu-00</a></li>
+       <li><a href="http://www.naver.com">menu-01</a></li>
+       <li><a href="http://www.naver.com">menu-02</a></li>
+       <li><a href="http://www.naver.com">menu-03</a></li>
+       <li><a href="http://www.naver.com">menu-04</a></li>
+       <li><a href="http://www.naver.com">menu-05</a></li>   
+   </ul>
+   
+
+    <img src="title.png">
+    <div id="cir"></div>
+
+    
+
+    <input> <br>
+    <input disabled>
+    <input type="checkbox" id="chk"><label for="chk">메뉴</label>
+    <div id="menu">
+        <ul>
+            <li>홈</li>
+            <li>회사 소개</li>
+            <li>서비스 소개</li>
+            <li>오시는 길</li>
+        </ul>
+
+    </div>
+
+
+    <!--
+    <h1>헤더1</h1>
+    <h2>헤더2</h2>
+    <h2>헤더2</h2>
+    <h2>헤더2</h2>
+    <h2>헤더2</h2>
+    <h2>헤더2</h2>
+    <h2>헤더2</h2>
+-->
+
+</body></html>

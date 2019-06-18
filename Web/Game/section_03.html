@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Gamedev Canvas Workshop</title>
+    <style>
+        <!--스타일 초기화
+        -->
+        *
+        {
+        margin:
+        0;
+        padding:
+        0;
+        }
+        canvas
+        {
+        background:
+        #eee;
+        display:
+        block;
+        margin:
+        0
+        auto;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <canvas id="myCanvas" width="480" height="320"></canvas>
+
+
+
+    <script>
+        //JavaScript 코드가 들어가는 공간
+
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+
+        //공을 매 프레임마다 움직이게 하기위해 정의 하는 함수들 정해진 값이 아닌 x,y로 정해서 매번 다른 값으로 옮길 수 있게 지정한다.
+        var x = canvas.width / 2;
+        var y = canvas.height - 30;
+
+        //매 프레임마다 x와 y 두 변수 값을 갱싱해주기 위해 정의된 또 다른 변수들
+        var dx = -2;
+        var dy = -2;
+
+        //벽에 닿았을 때 튕겨나오게 해야 한다.
+        //원의 반지름 값을 대입하여 계산하는데 사용하기 위한 함수.
+        var ballRadius = 10;
+
+        var color = "#" + Math.round(Math.random()*0xFFFFFF).toString(16);
+    
+
+        function drawball() {
+
+            //캔버스에서 움직일 공을 정의하는 함수. 공의 색깔과 크기 등을 지정했다.
+            ctx.beginPath();
+
+            //기존에 반지름 값을 10으로 지정했으나 튕기게 하기 위해서는 반지름 값을 따로 변수로 주어 지정했다.
+            ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.strokeStyle = "gray"
+            ctx.stroke();
+            ctx.closePath();
+        };
+
+        function draw() {
+
+            
+            //drawing code
+            //그려질 공을 정의하는 함수.
+
+            //clearRect는 캔버스의 내용을 지워주기 위한 함수로 이 함수를 지정하지 않는다면, 공이 지나간 흔적이 캔버스에 남아있게된다. 네 개의 파라미터는 지닌 이 메소드는, 직사각형의 좌상단 모서리를 표시할 x와 y의 좌표와 직사각형의 우하단 모서리를 표시할 x와 y의 좌표가 그 파라미터 값이다. 이 네 개의 좌표값으로 생기는 사각형 안에 생기는 모든 것들은 전부 지워진다.
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            //공을 정의한 함수를 draw함수에 포함시켜서 draw가 움직이는 공을 만들어줬다. 
+            drawball();
+
+            //캔버스에는 총 4개의 모서리, 즉 4개의 벽이 있다. 공은 맨 처음에 x좌표로는 정중앙 y값으로는 아래에서 약간 위에 위치해 있다. 이 의미는 공의 정중앙 좌표가 그 좌표값에 위치한다는 소리다. 나는 이 좌표값을 dx와 dy로 변할 수 있게 만들었다. y값만을 생각한다면 y의 값이 변하는 순간, 즉 y=y+dy의 값이 0보다 낮아지거나 캔버스의 height값(여기서는 320이지만 어떤 값으로 지정하든 변화를 따라올 수 있게 canvas.height로 지정하는게 좋다.)보다 더 높아지는 순간이 바로 상하 캔버스 벽으로 사라지는 순간이라고 할 수 있다.
+
+            //y값이 0보다 낮아지는 순간 즉 상단 벽으로 사라지는 순간 dy값을 음수로 변환시키는 코드이다. 만약 상단 벽에 닿는 순간, 즉 y의 값이 음수로 변하는 순간 이 코드가 true되어 dy의 값은 음수로 변할 것이고 위로 향하던 공은 그 순간 아래로 내려가게 될 것이다.
+            //if(y+dy<0) {
+            //dy = -dy;
+            //}
+
+            //이 캔버스에서 height는 320이고 이를 넘어갈 시에도 공은 사라진다 이를 방지하기 위해서 아래와 같이 dy의 값을 변화시켜 공의 움직임을 반전시켰다. 
+            //if(y+dy>canvas.height) {
+            //  dy = -dy;
+            //}
+
+            //또한 공의 기준을 중앙 좌표점으로 계산해두면 공이 반쯤 나가서 중앙이 0에 맞춰지는 순간 튕기기 때문에 어색하게 보인다. 이를 해결하기 위해 공이 가진 원의 둘레를 기준으로 계산을 해야 한다. 
+            //y+dy<0 -> y+dy<ballRadius
+            //y+dy>canvas.height -> y+dy>canvas.height-ballRadius
+            //x+dx<0 -> x+dx<ballRadius
+            //x+dx>canvas.width -> x+dx>canvas.width-ballRadius
+
+            if (y + dy < ballRadius || y + dy > canvas.height - ballRadius) {
+                dy = -dy;
+                color = "#" + Math.round(Math.random()*0xFFFFFF).toString(16);
+                ctx.fillStyle =color;
+                ctx.fill();
+                
+                
+            }
+
+            //좌우의 벽 또한 같은 문제이므로 y값만 x값으로, height만 width로 바꿔서 주면 된다.
+            if (x + dx < ballRadius || x + dx > canvas.width - ballRadius) {
+                dx = -dx;
+                color = "#" + Math.round(Math.random()*0xFFFFFF).toString(16);
+                ctx.fillStyle =color;
+                ctx.fill();
+                
+            }
+            
+            
+
+            //매번 값을 변경해주기 위해 x와 y의 값을 dx와 dy를 이용해서 변화시켰다.                
+            x += dx;
+            y += dy;
+            
+            
+
+        };
+
+
+
+
+
+        //draw함수가 무한하게 다시 실행되게 하는 함수를 지정했다 setInterval(function,1000(1초));
+        setInterval(draw, 12);
+    </script>
+
+
+</body></html>

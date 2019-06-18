@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <style>
+        td {
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <fieldset>
+            <legend>회원가입 양식</legend>
+            <table border="0">
+                <tr>
+                    <td><label for="userName">이름</label></td>
+                    <td><input id="userName" type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td><label for="userId">아이디</label></td>
+                    <td><input id="userId" type="text" name="id"></td>
+                </tr>
+                <tr>
+                    <td><label for="userPw">비밀번호</label></td>
+                    <td><input pw="userPw" type="text" name="Pw"></td>
+                </tr>
+                <tr>
+                    <td><label for="sex">성별</label></td>
+                    <td><input type="radio" id="m"><label for="m">남자</label><input type="radio" id="w"> <label for="w">여자</label></td>
+                </tr>
+                <tr>
+                    <td><label for="birth">생일</label></td>
+                    <td><select name="bYear">
+                            <option value="">년도</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                        </select>
+                        <select name="bMonth">
+                            <option value="">월</option>
+                            <option value="12">12월</option>
+                            <option value="11">11월</option>
+                            <option value="10">10월</option>
+
+                        </select>
+                        <select name="bDay">
+                            <option value="">일</option>
+                            <option value="30">30일</option>
+                            <option value="29">29일</option>
+                            <option value="28">28일</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center"><input type="submit" value="가입"></td>
+                    <td></td>
+                </tr>
+
+            </table>
+        </fieldset>
+        <br>
+        <!--        colspan="2" style ="center<br>-->
+
+        <br>
+
+        <br>
+
+
+
+
+
+    </form>
+</body></html>
