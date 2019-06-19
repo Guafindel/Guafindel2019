@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>회원가입 동의</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    
+    <div id="wrap">
+        <div id="header">
+            <h1>
+                <a href="http://www.naver.com" class="h_lolo">
+                    <span class="blind">NAVER</span>
+                </a>
+            </h1>
+            <div class="lang">
+                <select id="langSelect" name="langSelect" title="언어선택" class="sel">
+                    <option value="ko_KR" selected>한국어</option>
+                    <option value="en_US">English</option>
+                </select>
+            </div>
+        </div>
+        <div id="container">
+            <div id="content">
+                <h2 class="blind">네이버 회원가입</h2>
+                <div class="join_content">
+                    <div class="join_form">
+                        <form id="join_form" method="get" action="">
+                            <input type="hidden" id="token_sjoin" name="token_sjoin" value="XTz6bxEvcDGLJLu0">
+                            <div class="terms_p">
+                                <p class="terms_bx_list">
+                                    <span class="input_chk">
+                                        <input type="checkbox" id="chk_all" name="chk_all">
+                                        <label for="chk_all">
+                                            <span class="chk_all_txt">"이용약관, 개인정보 수집 및 이용,"
+                                            <br class="m_br">
+                                            " 위치 정보 이용 약관(선택),"
+                                            <br>
+                                            " 프로모션 안내"
+                                            <br class="m_br">
+                                            "메일 수신(선택)에 모두 동의합니다."
+                                            </span>
+                                        </label>
+                                    </span>
+                                </p>
+                                <ul class="terms_bx_list">
+                                    <li class="terms_bx">
+                                        <span class="input_chk">
+                                            <input type="checkbox" id="termsService" name="termsService" class="chk">
+                                            <label for="termsService"
+                                        </span>
+                                        <div class="terms_box" tabindex="0" id="divService"></div>
+                                        
+                                    </li>
+                                    <li class="terms_bx"></li>
+                                    <li class="terms_bx"></li>
+                                    <li class="terms_bx"></li>
+                                </ul>
+                                <span class="error" id="agreeMsg" style="display: none">네이버 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+    
+</body>
+
+</html>
