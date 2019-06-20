@@ -4,6 +4,7 @@
 <head>
     <title>회원가입 동의</title>
     <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
     <style>
         * {
@@ -32,17 +33,17 @@
         .subtitle {
             font-size: 14px;
             font-weight: 600;
+            margin-left: 30px;
         }
 
         #header .languege .langsel {
             font-size: 14px;
             border: 1px solid #ddd;
             padding: 5px;
-            margin-left: 687px;
         }
 
         #content {
-            width: 768px;
+            width: 460px;
             height: 665px;
             margin: 0px auto;
             background-color: #fff;
@@ -59,7 +60,7 @@
         }
 
         textarea {
-            width: 768px;
+            width: 460px;
             height: 88px;
             border: 1px solid #ddd;
         }
@@ -71,17 +72,39 @@
         }
 
         input[type=button] {
-            width: 380px;
+            width: 225px;
             height: 61px;
             color: white;
             font-size: 25px;
             font-weight: 600;
 
         }
-        input[type=checkbox] {
-            
+
+        .sub {
+            width: 460px;
+            margin: 0 auto;
         }
 
+        .languege {
+            width: 460px;
+            margin-left: 533px;
+        }
+
+        input[type=checkbox] {
+            display: none;
+
+        }
+
+        input[type=checkbox]+label {
+            display: inline-block;
+            cursor: pointer;
+            background: url(naver_img/middleChk.png) no-repeat;
+            padding: 3px;
+
+        }
+
+        input[type=checkbox]:checked+label {
+            background: url(naver_img/middleChkon.png) no-repeat;
         }
     </style>
 </head>
@@ -110,15 +133,15 @@
 
         <!--컨테이너 시작-->
         <div id="container">
-            <div id="check1">
+            <div class="sub" id="check1">
                 <span>
-                    <input type="checkbox" id="che1" class="nessinput">
+                    <input type="checkbox" id="che1" class="allcheck">
                     <label for="che1"><span class="subtitle" style="text-decoration: underline;">이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택), 프로모션 안내 메일 수신(선택)에 모두 동의합니다.</span></label>
                 </span>
             </div>
 
             <br><br>
-            <div id="check2">
+            <div class="sub" id="check2">
                 <span>
                     <input type="checkbox" id="che2" class="subcheck">
                     <label for="che2"><span class="subtitle">네이버 이용약관 동의(필수)</span></label>
@@ -127,20 +150,20 @@
                 <textarea>여러분을 환영합니다.
 네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
 </textarea>
-           <br><br>
+                <br><br>
             </div>
-            <div id="check3">
+            <div class="sub" id="check3">
                 <span>
                     <input type="checkbox" id="che3" class="subcheck">
-                    <label for="che2"><span class="subtitle">개인정보 수집 및 이용에 대한 안내(필수)</span></label>
+                    <label for="che3"><span class="subtitle">개인정보 수집 및 이용에 대한 안내(필수)</span></label>
                 </span>
                 <br><br>
                 <textarea>정보통신망법 규정에 따라 네이버에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
 
 </textarea>
-           <br><br>
+                <br><br>
             </div>
-            <div id="check4">
+            <div class="sub" id="check4">
                 <span>
                     <input type="checkbox" id="che4" class="subcheck">
                     <label for="che4"><span class="subtitle">위치정보 이용약관 동의(선택)</span></label>
@@ -153,21 +176,21 @@
 이 약관은 네이버 주식회사 (이하 “회사”)가 제공하는 위치정보사업 또는 위치기반서비스사업과 관련하여 회사와 개인위치정보주체와의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
 
 </textarea>
-           <br><br>
+                <br><br>
             </div>
-            <div id="check5">
+            <div class="sub" id="check5">
                 <span>
                     <input type="checkbox" id="che5" class="subcheck">
                     <label for="che5"><span class="subtitle">이벤트 등 프로모션 알림 메일 수신(선택)</span></label>
                 </span>
             </div>
             <br><br>
-            <div id="agree">
-                <span><input style="background-color: #8E8E8E" type="button" value="비동의"></span>
-                <span><input style="background-color: #08A600" type="button" value="동의"></span>
+            <div class="sub" id="agree">
+                <span><input onclick = "location.href = 'https://www.naver.com' " style="background-color: #8E8E8E" type="button" value="비동의"></span>
+                <span><input onclick="location.href = 'https://www.naver.com'" id="agreebutton" style="background-color: #08A600" type="button" value="동의"></span>
             </div>
             <br>
-            <div id="groupsignup" style="text-align: center">
+            <div class="sub" id="groupsignup" style="text-align: center">
                 <span>회사, 동아리 등 단체에서 사용할 ID가 필요하세요?</span>
                 <span>
                     <a style="text-decoration: underline" href="https://www.naver.com">단체 회원 가입</a>
@@ -178,12 +201,51 @@
         <br>
         <br>
         <div id="footer" style="text-align-last: center;">
-            <span><a href="#">이용약관</a></span> | <span><a href="#" style="font-weight: 600">개인정보처리방침</a></span> | <span><a href="#">책임의 한계와 법적고지</a></span> | <span><a href="#">회원정보 고객센터</a></span>
-            <div>
-                <span>@</span>
-                <span><a href="#">NAVER Corp.</a></span>
+            <div class="sub">
+                <span><a href="#">이용약관</a></span> | <span><a href="#" style="font-weight: 600">개인정보처리방침</a></span> | <span><a href="#">책임의 한계와 법적고지</a></span> | <span><a href="#">회원정보 고객센터</a></span>
+                <br><br>
+                <div>
+                    <span><img src="naver_img/naver_logo_small.gif"></span>
+                    <span>@</span>
+                    <span><a href="#">NAVER Corp.</a></span>
+                </div>
             </div>
         </div>
     </div>
 
+    <script>
+        $(document).ready(function() {
+
+            $('#che1').click(function() {
+                if ($(this).prop('checked')) {
+                    $('.subcheck').prop('checked', true);
+                } else {
+                    $('.subcheck').prop('checked', false);
+                }
+            });
+
+            $('.subcheck').click(function() {
+                if (!$(this).prop('checked')) {
+                    $('#che1').prop('checked', false);
+                } else if ($('.subcheck').length == $('.subcheck:checked').length) {
+                    $('#che1').prop('checked', true);
+                }
+            });
+
+            $('#container').submit(function(){
+                if(!$('#che1').prop('ckecked') && !$('#che2').prop('checked')) {
+                    $('#agreebutton').css('display','block');
+                    return false;
+                }
+                
+            });
+
+
+
+
+
+
+
+        });
+    </script>
 </body></html>
