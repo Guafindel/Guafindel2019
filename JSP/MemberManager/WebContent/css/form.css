@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+h1 {
+		text-align: center;
+	}
+	
+	table {
+		border: 0;
+		border-collapse: collapse; 
+		margin: 0 auto;
+	}
+	
+	td {
+		border: 1px solid #DDD;
+		padding: 10px;
+	}
+	
+	select {
+		height: 25px;
+	}
+	
+	table tr:last-child>td {
+		text-align: center;
+	}
