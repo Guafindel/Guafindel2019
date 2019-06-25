@@ -7,3 +7,5 @@ https://github.com/Guafindel/Guafindel2019/tree/master/project = HTML, CSS, Java
 https://github.com/Guafindel/Guafindel2019/blob/master/Web/naver/signup1.html = 네이버 회원가입 약관 동의
 
 https://github.com/Guafindel/Guafindel2019/blob/master/Web/naver/signup2.html = 네이버 회원가입 
+
+https://github.com/Guafindel/Guafindel2019/tree/master/JSP/First2Web/WebContent/member = 회원관리 폼 유즈빈 
