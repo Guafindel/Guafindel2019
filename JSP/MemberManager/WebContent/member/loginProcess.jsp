@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<jsp:useBean id="userInfo" class="web.MemberInfo" scope="request"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +20,7 @@
 
 </head>
 <body>
-<%
+<%-- <%
  	String userId = request.getParameter("uId");
 	String userPw = request.getParameter("uPw");
 	
@@ -26,7 +28,7 @@
 		response.sendRedirect(request.getContextPath()); // /mm
 	}
 
-%>
+%> --%>
 
 	<!-- 헤더 시작 -->
 	<%@ include file="../frame/header.jsp"%>
@@ -44,11 +46,11 @@
 			<table>
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="uId" value="<%= userId%>"></td>
+					<td><input type="text" name="id" value="<%= id%>"></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="text" name="uPw" value="<%= userPw%>"></td>
+					<td><input type="text" name="pw" value="<%= pw%>"></td>
 				</tr>
 				<tr>
 					<td></td>
