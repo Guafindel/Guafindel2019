@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%-- <jsp:useBean id="userInfo" class="member.MemberInfo" scope="request"/>
 <jsp:setProperty property="*" name="userInfo"/> --%>
+<%-- <%	Cookie cookie = new Cookie("cookieName","cookieValue");
+	response.addCookie(cookie);
+%> --%>
 <!DOCTYPE html>
 <html>
 <head>
