@@ -1,7 +1,19 @@
+<%@page import="member.LoginInfo"%>
+<%@page import="member.MemberLogin"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:useBean id="userInfo" class="member.MemberInfo" scope="session"/>
-<jsp:setProperty property="*" name="userInfo"/>
+<%-- <jsp:useBean id="userInfo" class="member.MemberInfo" scope="session"/>
+<jsp:setProperty property="*" name="userInfo"/> --%>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
+<%
+	LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo");
+%>
+
+<%
+	MemberLogin memberLogin = (MemberLogin) session.getAttribute("SignUp");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +23,7 @@
 <!-- jQuery CDN 1.12.4 -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
-<link href="/mm/css/default.css" rel="stylesheet" type="text/css">
+<link href="/jsp01/css/default.css" rel="stylesheet" type="text/css">
 
 <!-- 스타일 시작 -->
 <style>
@@ -20,9 +32,9 @@
 
 </head>
 <body>
-<%
-	request.setCharacterEncoding("utf-8");
-%>
+	<%
+		request.setCharacterEncoding("utf-8");
+	%>
 
 	<!-- 헤더 시작 -->
 	<%@ include file="../frame/header.jsp"%>
@@ -34,11 +46,28 @@
 
 	<!-- 컨테이너 시작 -->
 	<div id="container">
+		<%
+			if(loginInfo != null) {
+			
+			
+		%>
 		<h3>회원 정보 저장 페이지.</h3>
 		<hr>
-		
-			<%= userInfo %>
-		
+			<img src="../images/<%=loginInfo.getuPhoto() %>">
+			<h4>이름 : <%= loginInfo.getuName() %></h4>.
+			<h4>아이디 : <%= loginInfo.getuId() %></h4>
+	
+		<%
+			} else {
+		%>
+		<script>
+			alert('로그인 후 이용가능한 페이지 입니다.');
+			location.href='login.jsp';
+		</script>
+		<%
+			}
+		%>
+
 	</div>
 	<!-- 컨테이너 끝 -->
 

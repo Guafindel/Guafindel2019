@@ -1,76 +1,86 @@
 package member;
 
+import java.util.Date;
+
 public class MemberInfo {
 
-	private String id;
-	private String pw;
-	private String name;
-	private String email;
-	
-	public MemberInfo() {}
-	
-	public MemberInfo(String id, String pw, String name, String email) {
-		super();
-		this.id = id;
-		this.pw = pw;
-		this.name = name;
-		this.email = email;
+	private String uId;
+	private String uPw;
+	private String uName;
+	private String uPhoto;
+	private Date regDate;
+
+	public MemberInfo() {
+		this.regDate = new Date();
 	}
 
-
-
-	public String getId() {
-		return id;
+	public void setuId(String uId) {
+		this.uId = uId;
 	}
 
-
-
-	public void setId(String id) {
-		this.id = id;
+	public void setuPw(String uPw) {
+		this.uPw = uPw;
 	}
 
-
-
-	public String getPw() {
-		return pw;
+	public void setuName(String uName) {
+		this.uName = uName;
 	}
 
-
-
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setuPhoto(String uPhoto) {
+		this.uPhoto = uPhoto;
 	}
 
-
-
-	public String getName() {
-		return name;
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
 
-
-
-	public void setName(String name) {
-		this.name = name;
+	public String getuId() {
+		return uId;
 	}
 
-
-
-	public String getEmail() {
-		return email;
+	public String getuPw() {
+		return uPw;
 	}
 
+	public String getuName() {
+		return uName;
+	}
 
+	public String getuPhoto() {
+		return uPhoto;
+	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public Date getRegDate() {
+		return regDate;
 	}
 
 	@Override
 	public String toString() {
-		return "MemberInfo [id=" + id + ", pw=" + pw + ", name=" + name + ", email=" + email + "]";
+		return "MemberInfo [uId=" + uId + ", uPw=" + uPw + ", uName=" + uName + ", uPhoto=" + uPhoto + ", regDate="
+				+ regDate + "]";
 	}
 
-	
+	// 화면 결과 출력을 위한 HTML 코드 반환
+	public String makeHtmlDiv() {
+		String str = "";
 
-	
+		str += "<div class=\"mInfor\"> \n";
+		str += "	<h3> \n";
+		str += "		" + uId + "(" + uName + ")\n";
+		str += "	</h3> \n";
+		str += "	<p> \n";
+		str += "		" + uPw;
+		str += "	</p> \n";
+		str += "</div> \n";
+
+		return str;
+	}
+
+	// MemberInfo 객체에서 -> LoginInfo로 객체 반환
+	public LoginInfo toLoginInfo() {
+
+		return new LoginInfo(uId, uName, uPhoto);
+		
+	}
+
 }

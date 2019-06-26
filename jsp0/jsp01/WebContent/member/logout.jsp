@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	//현재 session 객체를 소멸시킨다.
-	request.getSession(false).invalidate();
-
+	/* request.getSession(false).invalidate(); */
+	session.invalidate();
 	response.sendRedirect(request.getContextPath());
 %>

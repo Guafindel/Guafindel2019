@@ -1,0 +1,13 @@
+﻿로그인폼->로그인처리->로그인인증(session 속성에 데이터 저장)->
+로그인체크(session에 회원 정보가 있는지 확인)->
+로그아웃(현재 연결되어 있는 세션 삭제)
+
+로그인폼->로그인처리->이전페이지이동
+
+loginform.jsp : id/pw 입력 폼
+
+login.jsp : id/pw 데이터 저장, id/pw 인증 처리, 세션에 사용자 데이터 저장. forward loginCheck.jsp
+
+loginCheck.jsp : 세션에서 사용자 데이터 받기, 사용자 데이터 유무 확인
+
+logout.jsp: 현재 세션을 삭제

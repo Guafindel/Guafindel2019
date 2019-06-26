@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%-- <jsp:useBean id="userInfo" class="member.MemberInfo" scope="request"/>
-<jsp:setProperty property="*" name="userInfo"/> --%>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
 <!-- jQuery CDN 1.12.4 -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
-<link href="/mm/css/default.css" rel="stylesheet" type="text/css">
+<link href="/jsp01/css/default.css" rel="stylesheet" type="text/css">
 
 <!-- 스타일 시작 -->
 <style>
@@ -20,9 +21,7 @@
 
 </head>
 <body>
-<%
-	request.setCharacterEncoding("utf-8");
-%>
+
 
 	<!-- 헤더 시작 -->
 	<%@ include file="../frame/header.jsp"%>
@@ -40,11 +39,11 @@
 			<table>
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="id"></td>
+					<td><input type="text" name="uId"></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" name="pw"></td>
+					<td><input type="password" name="uPw"></td>
 				</tr>
 				<tr>
 					<td></td>

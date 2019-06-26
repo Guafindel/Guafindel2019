@@ -11,7 +11,7 @@
 <!-- jQuery CDN 1.12.4 -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
-<link href="/mm/css/default.css" rel="stylesheet" type="text/css">
+<link href="/jsp01/css/default.css" rel="stylesheet" type="text/css">
 
 <!-- 스타일 시작 -->
 <style>
@@ -39,23 +39,24 @@
 			<table>
 				<tr>
 					<td>아이디(이메일)</td>
-					<td><input type="email" name="id" required></td>
+					<td><input type="email" name="uId" required></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" name="pw" required></td>
+					<td><input type="password" name="uPw" required></td>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="name" required></td>
+					<td><input type="text" name="uName" required></td>
 				</tr>
 				<tr>
 					<td>사진</td>
 					<td><input type="file" name="uPhoto"></td>
 				</tr>
 				<tr>
+				<tr>
 					<td></td>
-					<td><input type="submit" value="회원가입" name=""></td>
+					<td><input type="submit" value="회원가입"></td>
 				</tr>
 			</table>
 		</form>

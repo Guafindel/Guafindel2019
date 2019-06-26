@@ -12,15 +12,17 @@ public class UserInfo {
 	private String name;
 	private String address;
 	private String email;
+	private String photo;
 	private Date registerDate;
 	
-	public UserInfo(String id, String password, String name, String address, String email, Date registerDate) {
+	public UserInfo(String id, String password, String name, String address, String email, String photo, Date registerDate) {
 		super();
 		this.id = id;
 		this.password = password;
 		this.name = name;
 		this.address = address;
 		this.email = email;
+		this.photo = photo;
 		this.registerDate = new Date();
 	}
 	
@@ -71,11 +73,21 @@ public class UserInfo {
 		this.registerDate = registerDate;
 	}
 
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
 	@Override
 	public String toString() {
 		return "UserInfo [id=" + id + ", password=" + password + ", name=" + name + ", address=" + address + ", email="
-				+ email + ", registerDate=" + registerDate + "]";
+				+ email + ", photo=" + photo + ", registerDate=" + registerDate + "]";
 	}
+
+	
 	
 	
 	
