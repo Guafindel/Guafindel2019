@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="sub.jspf" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,7 @@
 <body>
 
 	<h1>
-		현재 시간은 : <%=%>
+		폴더 경로 : <%= dataFolder %>
 	</h1>
 
 

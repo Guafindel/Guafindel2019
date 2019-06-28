@@ -4,12 +4,17 @@
 	pageEncoding="UTF-8"%>
 <%-- <jsp:useBean id="userInfo" class="member.MemberInfo" scope="session"/>
 <jsp:setProperty property="*" name="userInfo"/> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%
 	request.setCharacterEncoding("utf-8");
 %>
-<%
+<%-- <%
 	LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo");
-%>
+%> --%>
+	
+<%-- 	${loginInfo} --%>
 
 <!DOCTYPE html>
 <html>
@@ -43,29 +48,29 @@
 
 	<!-- 컨테이너 시작 -->
 	<div id="container">
-		<%
-			if(loginInfo != null) {
-			
-			
-		%>
+		
 		<h3>회원 정보 저장 페이지.</h3>
+	
+		<c:if test="${loginInfo ne null}">
+	
 		${sessionScope.loginInfo} <!-- == Map.get("loginInfo") -->
 		
 		<hr>
-			<%-- <img src="../images/<%=loginInfo.getuPhoto() %>"> --%> <img src="../images/${loginInfo.uPhoto}">
-			<%-- <h4>이름 : <%= loginInfo.getuName() %> --%>  <h4>${loginInfo.uName}</h4>.
-			<%-- <h4>아이디 : <%= loginInfo.getuId() %> --%>  <h4>${loginInfo.uId }</h4>
+			<img src="../images/${loginInfo.uPhoto}">
+			<h4>이름 : ${loginInfo.uName}</h4>.
+			<h4>아이디 : ${loginInfo.uId}</h4>
+			<h4>가입일 : <fmt:formatDate value="${loginInfo.regDate}" pattern="yyyy.MM.dd. hh:mm:ss" /> </h4>
 	
-		<%
-			} else {
-		%>
+		</c:if>	
+		
+		
+		
+		<c:if test="${loginInfo eq null}">
 		<script>
 			alert('로그인 후 이용가능한 페이지 입니다.');
 			location.href='login.jsp';
 		</script>
-		<%
-			}
-		%>
+		</c:if>
 
 	</div>
 	<!-- 컨테이너 끝 -->

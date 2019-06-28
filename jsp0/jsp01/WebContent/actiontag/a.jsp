@@ -17,11 +17,9 @@
 
 </head>
 <body>
+	<h1>A 페이지 입니다.</h1>
 
-	<h1>
-		현재 시간은 : <%=%>
-	</h1>
-
+	<jsp:forward page="b.jsp"></jsp:forward>
 
 </body>
 </html>

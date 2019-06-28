@@ -2,103 +2,105 @@ package member;
 
 public class WonMember {
 
-	private String uId;
-	private String uPw;
-	private String uName;
-	private String uBirth;
-	private int uGender;
-	private int uAge;
-	private String uEmail;
-	private String uPnum;
+	private String id;
+	private String pw;
+	private String name;
+	private String birth;
+	private String sex;
+	private String age;
+	private String email;
+	private String pnum;
+
+	public WonMember() {}	
 	
-	public WonMember() {
-
+	public WonMember(String id, String pw) {
+		this.id = id;
+		this.pw = pw;
 	}
 
-	public String getuId() {
-		return uId;
+	public WonMember(String id, String pw, String name, String birth, String sex, String age, String email,
+			String pnum) {
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.birth = birth;
+		this.sex = sex;
+		this.age = age;
+		this.email = email;
+		this.pnum = pnum;
 	}
 
-	public void setuId(String uId) {
-		this.uId = uId;
+	public String getId() {
+		return id;
 	}
 
-	public String getuPw() {
-		return uPw;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public void setuPw(String uPw) {
-		this.uPw = uPw;
+	public String getPw() {
+		return pw;
 	}
 
-	public String getuName() {
-		return uName;
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
 
-	public void setuName(String uName) {
-		this.uName = uName;
+	public String getName() {
+		return name;
 	}
 
-	public String getuBirth() {
-		return uBirth;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setuBirth(String uBirth) {
-		this.uBirth = uBirth;
+	public String getBirth() {
+		return birth;
 	}
 
-	public int getuGender() {
-		return uGender;
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
 
-	public void setuGender(int uGender) {
-		this.uGender = uGender;
+	public String getSex() {
+		return sex;
 	}
 
-	public int getuAge() {
-		return uAge;
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
-	public void setuAge(int uAge) {
-		this.uAge = uAge;
+	public String getAge() {
+		return age;
 	}
 
-	public String getuEmail() {
-		return uEmail;
+	public void setAge(String age) {
+		this.age = age;
 	}
 
-	public void setuEmail(String uEmail) {
-		this.uEmail = uEmail;
+	public String getEmail() {
+		return email;
 	}
 
-	public String getuPnum() {
-		return uPnum;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public void setuPnum(String uPnum) {
-		this.uPnum = uPnum;
+	public String getPnum() {
+		return pnum;
 	}
 
-	public WonMember(String uId, String uPw, String uName, String uBirth, int uGender, int uAge, String uEmail,
-			String uPnum) {
-		super();
-		this.uId = uId;
-		this.uPw = uPw;
-		this.uName = uName;
-		this.uBirth = uBirth;
-		this.uGender = uGender;
-		this.uAge = uAge;
-		this.uEmail = uEmail;
-		this.uPnum = uPnum;
+	public void setPnum(String pnum) {
+		this.pnum = pnum;
 	}
 
 	@Override
 	public String toString() {
-		return "WonMember [uId=" + uId + ", uPw=" + uPw + ", uName=" + uName + ", uBirth=" + uBirth + ", uGender="
-				+ uGender + ", uAge=" + uAge + ", uEmail=" + uEmail + ", uPnum=" + uPnum + "]";
+		return "WonMember [id=" + id + ", pw=" + pw + ", name=" + name + ", birth=" + birth + ", sex=" + sex + ", age="
+				+ age + ", email=" + email + ", pnum=" + pnum + "]";
 	}
 	
 	
 
-
 }
+

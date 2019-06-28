@@ -28,13 +28,13 @@
 	<%
 		if(loginInfo != null) {
 	%> 
-	<h1><%= loginInfo.getName() %>님 로그인 상태입니다.</h1>
+	<h1><%= loginInfo.getuName() %>님 로그인 상태입니다.</h1>
 	<h3>
-		id = <%= loginInfo.getId() %> <br>
-		nickname = <%= loginInfo.getNickname() %> <br>
-		grade = <%= loginInfo.getGrade() %> <br>
-		photo = <%= loginInfo.getPhoto() %> <br>
-		pNum = <%= loginInfo.getpNum() %> <br>
+		id = <%= loginInfo.getuId() %> <br>
+		nickname = <%= loginInfo.getuNickname() %> <br>
+		grade = <%= loginInfo.getuGrade() %> <br>
+		photo = <%= loginInfo.getuPhoto() %> <br>
+		pNum = <%= loginInfo.getuPnum() %> <br>
 	</h3>
 	
 	<a href="logout.jsp">logout</a>

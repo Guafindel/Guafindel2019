@@ -1,10 +1,6 @@
-<%@page import="member.MemberInfo"%>
-<%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%
-	Enumeration<String> e = application.getAttributeNames();
-%>
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,31 +11,21 @@
 <!-- 제이쿼리 스크립트 삽입  -->
 <!-- 스타일 시작 -->
 <style>
+
 </style>
 <!-- 스타일 끝 -->
 
 </head>
 <!-- 바디 시작 -->
 <body>
-	<h3>리스트 페이지입니다.</h3>
-
-	<%
-		while (e.hasMoreElements()) {
-
-			String name = e.nextElement();
-
-			Object obj = application.getAttribute(name);
-
-			if (obj instanceof MemberInfo) {
-
-				out.println(name + ":" + obj + "<br>");
-
-			}
-
-		}
-	%>
-
-
+	<h3>
+		request 영역의 name01 : ${requestScope.name01} <br>
+							<%= request.getAttribute("name01") %> <br>
+		session 역역의 name02 : ${sessionScope.name02} <br>
+							<%= request.getAttribute("name02") %> <br>
+		application 영역의 name03 : ${applicationScope.name03} <br>
+							<%= request.getAttribute("name03") %> <br>
+	</h3>
 
 
 

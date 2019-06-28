@@ -1,12 +1,11 @@
-<%@page import="member.WonLogin"%>
+<%@page import="member.WonMember"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 <%
 	request.setCharacterEncoding("utf-8");
 %>
 <%
-	WonLogin login = (WonLogin)session.getAttribute("logCheck");
+	WonMember member = new WonMember();
 %>
 <!DOCTYPE html>
 <html>
@@ -25,17 +24,12 @@
 </head>
 <!-- 바디 시작 -->
 <body>
-
-	<% 
-		if(logCheck != null) {
-			
+	<h3>EL 표현하기</h3>
+	<hr>	
+	<%
+		request.setAttribute("member", member);
 	%>
-	<h3>회원 정보 저장 페이지.</h3>
-	<hr>
-			
-	<%		
-		}
-	%>
+		${member.uId}
 </body>
 <!-- 바디 끝 -->
 

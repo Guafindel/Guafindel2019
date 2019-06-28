@@ -79,7 +79,7 @@ public class MemberInfo {
 	// MemberInfo 객체에서 -> LoginInfo로 객체 반환
 	public LoginInfo toLoginInfo() {
 
-		return new LoginInfo(uId, uName, uPhoto);
+		return new LoginInfo(uId, uName, uPhoto, regDate);
 		
 	}
 

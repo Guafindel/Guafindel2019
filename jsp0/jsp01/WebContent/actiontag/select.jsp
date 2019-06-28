@@ -17,10 +17,28 @@
 
 </head>
 <body>
+	<form action="page.jsp" method="get">
+	
+		no <input type="text" name="no" value="0">
+		name <input type="text" name="uname">
+		
+		
+		PAGE Type
+		<select name="type">
+			<option>선택하세요</option>
+			<option value="a">A</option>
+			<option value="b">B</option>
+			<option value="c">C</option>
+		</select>
+		<input type="submit" value="보내기">
+		
+	
+	</form>
 
-	<h1>
-		현재 시간은 : <%=%>
-	</h1>
+
+
+
+
 
 
 </body>

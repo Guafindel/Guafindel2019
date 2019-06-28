@@ -8,10 +8,9 @@
 <!-- 생성된 객체에 데이터 바인딩 : 폼의 name 속성과 beans 클래스의 변수 이름이 동일해야 한다. -->
 <jsp:setProperty property="*" name="memberInfo"/>
 
-
 <%
 	if(memberInfo.getuPhoto() == null) {
-		memberInfo.setuPhoto("noImg");
+		memberInfo.setuPhoto("noImg.jpg");
 	}
 
 
@@ -89,21 +88,26 @@
 	<!-- 컨테이너 시작 -->
 	<div id="container">
 		<h3>회원 가입 요청 처리 페이지</h3>
+		<%-- ${sessionScope.memberInfo} --%>
+		
 		<hr>
 		
 			<table>
 				<tr>
 					<td>아이디(이메일)</td>
 					<td><input type="email" name="id" value="<%=/* userInfo.getId() */ memberInfo.getuId() %>"></td>
+					<td><input type="email" name="id" value="${memberInfo.uId}"></td>
 				</tr>
 				<!-- /* userInfo.getPw() */ -->
 				<tr>
 					<td>이름</td>
 					<td><input type="text" name="name" value="<%= /* userInfo.getName() */memberInfo.getuName() %>"></td>
+					<td><input type="text" name="name" value="${memberInfo.uName}"></td>
 				</tr>
 				<tr>
 					<td>사진</td>
 					<td><input type="file" name="photo" value="<%= memberInfo.getuPhoto()%>"></td>
+					<td><input type="file" name="photo" value="${memberInfo.uPhoto}"></td>
 				</tr>
 				<tr>
 					<td></td>
