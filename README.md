@@ -9,3 +9,7 @@ https://github.com/Guafindel/Guafindel2019/blob/master/Web/naver/signup1.html = 
 https://github.com/Guafindel/Guafindel2019/blob/master/Web/naver/signup2.html = 네이버 회원가입 
 
 https://github.com/Guafindel/Guafindel2019/tree/master/JSP/First2Web/WebContent/member = 회원관리 폼 유즈빈 
+
+https://github.com/Guafindel/Guafindel2019/tree/master/jsp0/jsp01/WebContent/member = 회원관리 개선 페이지
+
+https://github.com/Guafindel/Guafindel2019/tree/master/jsp0/jsp01/WebContent/won_member = 개량한 
