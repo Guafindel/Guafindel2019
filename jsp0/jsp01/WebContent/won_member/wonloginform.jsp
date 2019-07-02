@@ -7,15 +7,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- 뷰포트 -->
+<meta name="viewport" content="width=device-width" intial-scale="1">
+<!-- 뷰포트 -->
+
+<title>회원가입과 로그인 게시판</title>
 
 <!-- 제이쿼리 스크립트 삽입 -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
 <!-- 제이쿼리 스크립트 삽입  -->
 
 <!-- 스타일 링크 삽입 -->
-<link href="css/bootstrap.css" rel="stylesheet"
+<link href="css/bootstrap.min.css" rel="stylesheet"
 	type="text/css">
 <!-- 스타일 링크 삽입 완료-->
 
@@ -29,75 +33,44 @@
 <body>
 
 	<div id="wrap">
-
-		<!-- 헤더 시작 -->
-		<%@ include file="won_frame/header.jsp"%>
-		<!-- 헤더 끝 -->
-
-		<div id="container">
-		<h2>로그인 페이지</h2>
-		<br>
-		<hr> 
-		<br><br>
-			<div id="content">
-				<form action="wonlogininfo.jsp" method="post">
-					<table>
-						<tr>
-							<td>아이디</td>
-							<td><input type="text" name="id" required></td>
-						</tr>
-						<tr>
-							<td>비밀번호</td>
-							<td><input type="password" name="pw" required></td>
-						</tr>
-						<tr>
-							<td>이름</td>
-							<td><input type="text" name="name" required></td>
-						</tr>
-						<tr>
-							<td>생년월일</td>
-							<td><input type="text" name="birthY" placeholder="년(4자)"></td>
-							<select name="birthM">
-								<option>월</option>
-								<option>1</option>
-								<option>2</option>
-							</select>
-							<td><input type="text" name="birthD" placeholder="일"></td>
-						</tr>
-						<tr>
-							<select name="sex">
-								<option>성별</option>
-								<option>남</option>
-								<option>여</option>
-							</select>
-						</tr>
-						<tr>
-							<td>이메일</td>
-							<td><input type="email" name="email" palceholder="선택입력"></td>
-						</tr>
-						<tr>
-							<td>휴대전화</td>
-							<td><input type="text" name="pnum" palceholder="전화번호 입력"></td>
-						</tr>
-						<tr>
-							<td colspan="2">
-								<input type="submit" value="로그인">
-							</td>
-							
-						</tr>
-					</table>
-				</form>
-			</div>
+		<div id="header">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expaned="false">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="main.jsp">JSP 게시판</a>
+				</div>
+				<div class="collapse navbar-collapse" id="#bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="main.jsp">메인</a></li>
+						<li><a href="bbs.jsp">게시판</a></li>
+					</ul>
+					
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">접속하기<span class="caret"></</span></a>
+						<ul class="dropdown-menu">
+							<li class="active"><a href="login.jsp">로그인</a></li>
+							<li><a href="join.jsp">회원가입</a></li>
+					</ul>
+					</li>
+					</ul>
+				</div>
+			</nav>
 		</div>
-
-		<!-- 푸터 시작 -->
-		<%@ include file="won_frame/footer.jsp"%>
-		<!-- 푸터 끝 -->
-
+		
+		<div id="container"></div>
+		
+		<div id="footer"></div>
+	
 	</div>
+	
 
-
-	<script>bootstrap.js</script>
+<!-- 부트스트랩 js -->
+<script src="js/bootstrap.js"></script>
 
 </body>
 <!-- 바디 끝 -->
