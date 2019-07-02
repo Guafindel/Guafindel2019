@@ -18,7 +18,7 @@
 </head>
 <body>
 	<h1>
-		현재 시간은 : <%= CURRENT_TIME %>
+		현재 시간은 : <%-- <%= CURRENT_TIME %> --%>
 	</h1>
 </body>
 </html>

@@ -2,9 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <div id="header">
-	<h3>
-		<img src="<c:url value="/images/won_logo2.png" />" id="logo">
-	</h3>
+	
 	<div id="nav">
 		<ul>
 			<li>메인</li>

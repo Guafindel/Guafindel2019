@@ -15,7 +15,7 @@
 <!-- 제이쿼리 스크립트 삽입  -->
 
 <!-- 스타일 링크 삽입 -->
-<link href="/jsp01/won_member/won_css/won.css" rel="stylesheet" type="text/css">
+
 <!-- 스타일 링크 삽입 완료-->
 
 <!-- 스타일 시작 -->

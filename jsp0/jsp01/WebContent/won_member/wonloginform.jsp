@@ -15,7 +15,7 @@
 <!-- 제이쿼리 스크립트 삽입  -->
 
 <!-- 스타일 링크 삽입 -->
-<link href="/jsp01/won_member/won_css/won.css" rel="stylesheet"
+<link href="css/bootstrap.css" rel="stylesheet"
 	type="text/css">
 <!-- 스타일 링크 삽입 완료-->
 
@@ -44,11 +44,40 @@
 					<table>
 						<tr>
 							<td>아이디</td>
-							<td><input type="text" name="id"></td>
+							<td><input type="text" name="id" required></td>
 						</tr>
 						<tr>
 							<td>비밀번호</td>
-							<td><input type="password" name="pw"></td>
+							<td><input type="password" name="pw" required></td>
+						</tr>
+						<tr>
+							<td>이름</td>
+							<td><input type="text" name="name" required></td>
+						</tr>
+						<tr>
+							<td>생년월일</td>
+							<td><input type="text" name="birthY" placeholder="년(4자)"></td>
+							<select name="birthM">
+								<option>월</option>
+								<option>1</option>
+								<option>2</option>
+							</select>
+							<td><input type="text" name="birthD" placeholder="일"></td>
+						</tr>
+						<tr>
+							<select name="sex">
+								<option>성별</option>
+								<option>남</option>
+								<option>여</option>
+							</select>
+						</tr>
+						<tr>
+							<td>이메일</td>
+							<td><input type="email" name="email" palceholder="선택입력"></td>
+						</tr>
+						<tr>
+							<td>휴대전화</td>
+							<td><input type="text" name="pnum" palceholder="전화번호 입력"></td>
 						</tr>
 						<tr>
 							<td colspan="2">
@@ -67,6 +96,8 @@
 
 	</div>
 
+
+	<script>bootstrap.js</script>
 
 </body>
 <!-- 바디 끝 -->
