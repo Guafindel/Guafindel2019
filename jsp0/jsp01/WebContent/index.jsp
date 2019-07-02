@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<!-- bootstrap -->
+
+
 <!-- jQuery CDN 1.12.4 -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
