@@ -5,7 +5,7 @@
 <head>
 <meta charset=UTF-8">
 
-<title>Insert title here</title>
+<title>컨테이너 예제</title>
 
 <!-- 뷰포트 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +28,8 @@
 
 	<div class="container">
 		<h1>나의 첫 부트스트랩 페이지</h1>
-		<p>여기에 부언하겠습니다.</p>
+		<p>이건 컨테이너예요.</p>
+		<p>컨테이너는 보면 알 수 있듯이 width값을 중간 부분부터 들어가는걸 알수 있어.</p>
 	</div>
 
 <!-- 부트스트랩 js -->
