@@ -160,3 +160,10 @@ select *
 from emp
 where comm in (300,500,1400)
 ;
+
+--와일드카드(%) : select 컬럼 from 테이블 where 컬럼 like '%' 조건
+
+select * 
+from emp
+where ename like'%MA%'
+;
