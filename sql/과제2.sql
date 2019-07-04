@@ -57,30 +57,56 @@ INSERT INTO Orders VALUES (10, 3, 8, 13000, TO_DATE('2014-07-10','yyyy-mm-dd'));
 COMMIT;
 
 --1 마당서점의고객이요구하는다음질문에대해SQL 문을작성하시오.
+
 --(1) 도서번호가1인도서의이름
-select bookname
+select 1
 from book
 where bookid = 1
 ;
+
+--도서를 이름으로 찾을 때 
+select *
+from book
+where bookname like '%축구%'
+;
+
 --(2) 가격이20,000원이상인도서의이름
-select bookname
+select bookname, price
 from book
 where price >= 20000
 ;
+
 --(3) 박지성의총구매액(박지성의고객번호는1번으로놓고작성)
 select saleprice 
 from orders
 where custid = 1
 ;
+
+select sum(saleprice) as "총 구매액", count(*) as "총 구매횟수"
+from orders, customer
+where orders.custid = customer.custid and name='박지성'
+ 
+;
+
+select sum(saleprice) as "총 구매액", count(*) as "구매횟수"
+from orders
+where custid = 1
+;
+
 --(4) 박지성이구매한도서의수(박지성의고객번호는1번으로놓고작성)
-select orderid
+select count(*) as "구매 도서 수"
 from orders
 where custid = 1
 ;
 
 --2 마당서점의운영자와경영자가요구하는다음질문에대해SQL 문을작성하시오.
+
 --(1) 마당서점도서의총개수
 select bookid
+from book
+;
+
+select count(*) as "도서 총 개수"
 from book
 ;
 
@@ -89,8 +115,12 @@ select distinct publisher
 from book
 ;
 
+select count(distinct publisher) as "출판사 총 개수"
+from book
+;
+
 --(3) 모든고객의이름, 주소
-select name,address
+select name, address, nvl(phone,'X')
 from customer
 ;
 
@@ -112,9 +142,19 @@ from customer
 where name like '김__' 
 ;
 
+select name,address
+from customer
+where name like '김%'
+;
+
 --(7) 성이‘김’씨이고이름이‘아’로끝나는고객의이름과주소
 select name, address
 from customer
 where name like '김_아'
+;
+
+select name, address
+from customer
+where name like '김%아'
 ;
 

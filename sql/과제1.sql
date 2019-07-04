@@ -5,6 +5,9 @@ select ename as "사원의 이름" , sal as "급여", sal + 300 as "인상된 급여"
 from emp
 ;
 
+select ename, sal, sal+100 as "인상된 급여"
+from emp 
+;
 
 --2. 사원의 이름, 급여, 연간 총 수입을 총 수입이 많은 것부터 작은 순으로 출력하시오, 연간 총수입은 월급에 12를 곱한 후 $100의 상여금을 더해서 계산하시오.
 select ename as "사원의 이름", sal as "급여", sal*12+100 as "연봉과 상여금 합산"
@@ -163,5 +166,183 @@ select empno, ename, job, sal,
 from emp
 ;
 
+select ename, job, sal,
+                decode(job,
+                    'ANALYST',sal+200,
+                    'SALESMAN',sal+100,
+                    'MANAGER',sal+150,
+                    'CLERK',sal+100)as "인상된 급여"
+from emp
+order by job
+;
+
+--23. 모든 사원의 급여 최고액, 최저액, 총액 및 평균 급여를 출력하시오. 평균에 대해서는 정수로 반올림하시오.
+select max(sal), min(sal), sum(sal),round(avg(sal))
+from emp
+;
+
+--24. 각 담당 업무 유형별로 급여 최고액, 최저액, 총액 및 평균 액을 출력하시오. 평균에 대해서는 정수로 반올림 하시오.
+select job, max(sal), min(sal), sum(sal),round(avg(sal))
+from emp
+group by job
+;
+
+--25. COUNT(*) 함수를 이용하여 담당업무가 동일한 사원 수를 출력하시오.
+select job, count(*)
+from emp
+group by job
+;
+
+--26. 관리자 수를 나열하시오.
+--count연산자는 null값을 무시하기 때문에 where 조건을 따로 추가할 필요는 없다.
+select count(distinct MGR)
+from emp
+--where MGR is not null
+;
+
+select job, count(*)
+from emp
+where job = 'MANAGER'
+group by job
+;
+
+--27. 급여 최고액, 급여 최저액의 차액을 출력하시오.
+select max(sal) - min(sal) as "차액"  
+from emp
+;
+
+--28. 직급별 사원의 최저 급여를 출력하시오. 관리자를 알 수 없는 사원의 최저 급여가 2000 미만인 그룹은 제외시키고 결과를 급여에 대한 내림차순으로 정렬하여 출력하시오.
+select job, min(sal)
+from emp
+group by job
+having min(sal) > 2000
+;
+
+--29. 각 부서에 대해 부서번호, 사원 수, 부서 내의 모든 사원의 평균 급여를 출력하시오. 평균 급여는 소수점 둘째 자리로 반올림 하시오.
+select deptno, count(*), round(avg(sal),2)
+from emp
+group by deptno
+;
+
+--30. 각 부서에 대해 부서번호 이름, 지역 명, 사원 수, 부서내의 모든 사원의 평균 급여를 출력하시오. 평균 급여는 정수로 반올림 하시오. DECODE 사용.
+select deptno,
+            decode(deptno, 10,'ten', 20,'tw', 30,'tr',40,'ft') as dname,
+            decode(deptno, 10,'incheon', 20,'seoul', 30,'busan', 40,'jeju') as localname,
+            count(*),
+            round(avg(sal))
+from emp
+group by deptno      
+;
+
+--31. 업무를 표시한 다음 해당 업무에 대해 부서 번호별 급여 및 부서 10, 20, 30의 급여 총액을 각각 출력하시오. 별칭은 각 job, dno, 부서 10, 부서 20, 부서 30, 총액으로 지정하시오. ( hint. Decode, group by )
+select job, deptno as dno,
+            decode(deptno, 10,sum(sal)) as "부서 10",
+            decode(deptno, 20,sum(sal)) as "부서 20",
+            decode(deptno, 30,sum(sal)) as "부서 30",
+            sum(sal) as "급여 총액"
+from emp
+group by job, deptno
+order by deptno
+;
+
+--32. EQUI 조인을 사용하여 SCOTT 사원의 부서번호와 부서 이름을 출력하시오.
+select e.ename, e.deptno, d.dname
+from emp e, dept d
+where e.deptno = d.deptno and e.ename='SCOTT'
+;
+
+--33. INNER JOIN과 ON 연산자를 사용하여 사원 이름과 함께 그 사원이 소속된 부서이름과 지역 명을 출력하시오.
+select e.ename, d.dname, d.loc
+from emp e inner join dept d
+on e.deptno = d.deptno
+order by dname
+;
+
+--36. 조인과 WildCARD를 사용하여 이름에 ‘A’가 포함된 모든 사원의 이름과 부서명을 출력하시오.
+select e.ename, d.dname
+from emp e, dept d
+where e.deptno = d.deptno and e.ename like ('%A%')
+;
+
+--37. JOIN을 이용하여 NEW YORK에 근무하는 모든 사원의 이름, 업무, 부서번호 및 부서명을 출력하시오.
+select d.loc, e.ename, e.job, e.deptno, d.dname
+from emp e, dept d
+where e.deptno = d.deptno and d.loc = 'NEW YORK'
+;
+
+--38. SELF JOIN을 사용하여 사원의 이름 및 사원번호, 관리자 이름을 출력하시오.
+select e.ename || '의 사원 번호는' || e.empno || '이며 관리자의 이름은' || m.ename
+from emp e join emp m
+on e.mgr = m.empno
+;
+
+--39. OUTER JOIN, SELF JOIN을 사용하여 관리자가 없는 사원을 포함하여 사원번호를 기준으로 내림차순 정렬하여 출력하시오.
+select e.ename || '의 사원 번호는' || e.empno || '이며 관리자의 이름은' || nvl(m.ename, ' X')
+from emp e join emp m
+on e.mgr = m.empno(+)
+order by e.empno desc
+;
+
+--40. SELF JOIN을 사용하여 지정한 사원의 이름, 부서번호, 지정한 사원과 동일한 부서에서 근무하는 사원을 출력하시오. ( SCOTT )
+select e.deptno, m.ename
+from emp e, emp m
+where e.deptno = m.deptno and e.ename = 'SCOTT'
+;
+
+--41. SELF JOIN을 사용하여 WARD 사원보다 늦게 입사한 사원의 이름과 입사일을 출력하시오.
+select 'WARD의 입사일인 '||e.hiredate || ' 보다 늦게 입사한 사원의 이름은 ' || m.ename || '이며 그의 입사일은 ' || m.hiredate ||' 입니다.'
+from emp e, emp m
+where e.hiredate < m.hiredate and e.ename='WARD'
+;
+
+--42. SELF JOIN 을 사용하여 관리자보다 먼저 입사한 모든 사원의 이름 및 입사일을 관리자의 이름 및 입사일과 함께 출력하시오.
+select e.ename as "사원", e.hiredate as "사원 입사일", m.ename as "관리자", m.hiredate as "관리자 입사일"
+from emp e, emp m
+where e.hiredate < m.hiredate and e.mgr = m.empno
+;
+
+select e.ename, m.ename
+from emp e, emp m
+where e.mgr = m.empno
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
 select *
 from emp;
+
+--전체 사원의 평균 월급
+select round(avg(sal))
+from emp
+;
+
+--emp에서 모든 사원의 정보를 얻어보자 단, 월급을 기준으로 내림차순 정렬을 한다.
+select *
+from emp
+order by sal desc
+;
+
+
+--emp에서 이름이 'Au' 사원의 정보를 얻어보자
+select *
+from emp
+where ename like '%Au%'
+;
+
+--부서번호가 30, 50이고 월급이 5000 이하인 사원의 정보를 구하자
+select
+from emp
+;
+
+
+--부서번호가 10 또는 20인 부서의 최대 월급을 구하라
