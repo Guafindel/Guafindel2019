@@ -60,6 +60,14 @@ select rownum, empno, ename
 from emp
 order by ename
 ;
+select rownum, *
+from emp
+order by ename
+;
+
+select rownum, empno, ename, job, mgr, hiredate, sal, comm, deptno
+from emp
+;
 
 --부속질의가 먼저 처리되었기 때문에, 그 처리된 것에 대해서 순차대로 rownum을 부여된 것.
 select rownum, empno, ename
@@ -445,3 +453,45 @@ values(test_seq.nextval, 'DESIGN', 'SEOUL');
 
 truncate table dept01;
 
+select * from dept order by deptno;
+
+insert into dept values(60, 'Design', 'SEOUL');
+
+delete from dept where deptno=60;
+
+commit;
+
+select * from emp;
+
+desc emp;
+
+commit;
+rollback;
+
+delete from emp where empno=7970;
+
+delete from emp where empno=7969;
+
+commit;
+
+select rownum, * from emp;
+
+update emp set sal = 800 where ename='SMITH'; 
+update emp set sal = 1600 where ename='ALLEN';
+update emp set sal = 1250 where ename='WARD';
+update emp set sal = 2975 where ename='JONES';
+update emp set sal = 1250 where ename='MARTIN';
+update emp set sal = 2850 where ename='BLAKE';
+update emp set sal = 2450 where ename='CLARK';
+update emp set sal = 3000 where ename='SCOTT';
+update emp set sal = 5000 where ename='KING';
+update emp set sal = 1500 where ename='TURNER';
+update emp set sal = 1100 where ename='ADAMS';
+update emp set sal = 950 where ename='JAMES';
+update emp set sal = 3000 where ename='FORD';
+update emp set sal = 1300 where ename='MILLER';
+
+select e.*, d.dname, d.loc
+from emp e, dept d
+where e.deptno = d.deptno 
+;
