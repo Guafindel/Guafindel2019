@@ -11,7 +11,7 @@ desc memberinfo;
 --가입날짜 : 날짜타입               - default sysdate
 
 create table MemberInfo (
-    idx number(4), constraint MemberInfo_idx_NN not null,
+    idx number(4),  
     mId varchar2(12) constraint MemberInfo_mId_NN not null,
     mPx varchar2(16) constraint MemberInfo_mPw_NN not null,
     mName varchar(20) constraint MemberInfo_mName_NN not null,
@@ -94,7 +94,7 @@ from memberinfo
 ;
 
 select * from memberinfo;
-
+select * from memberinfo oder by idx;
 commit;
 
 rollback;

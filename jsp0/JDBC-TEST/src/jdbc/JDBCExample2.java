@@ -93,7 +93,7 @@ public class JDBCExample2 {
 			System.out.println("스콧만 출력하기");
 			System.out.println("------------------------------");
 			
-			while(rs2.next()) {
+			if(rs2.next()) {
 				System.out.println("사원번호" + rs2.getInt(1));
 				System.out.println("사원이름" + rs2.getString(2));
 				System.out.println("담당업무" + rs2.getString(3));
