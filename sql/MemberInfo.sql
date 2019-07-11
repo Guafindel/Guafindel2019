@@ -1,6 +1,7 @@
 --MemberInfo 테이블과 쿼리 작성
 
 desc memberinfo;
+select * from memberinfo;
 
 --MemberInfo 테이블 만들기
 --대리키 : idx                     -   기본키

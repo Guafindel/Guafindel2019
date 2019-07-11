@@ -49,7 +49,7 @@
 				<a href="#">회원 상세정보</a>
 			</div>
 		</div>
-		<br> <br>
+		<br>
 		<h1 class="display-4">홈</h1>
 		<br>
 		<h1>두 개의 불균등한 반응 형 컬럼</h1>

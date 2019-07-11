@@ -83,7 +83,7 @@
 				<a href="#">회원 상세정보</a>
 			</div>
 		</div>
-		<br> <br>
+		<br>
 		<h1 class="display-4">회원가입 처리</h1>
 		<br>
 		<div>

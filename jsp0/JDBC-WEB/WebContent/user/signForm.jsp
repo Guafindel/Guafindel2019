@@ -48,38 +48,51 @@
 			<div class="col-sm-2">
 				<a href="#">회원 상세정보</a>
 			</div>
+			<div class="col-sm-2">
+				<a href="#">출구</a>
+			</div>
 		</div>
-		<br> <br>
+		<br>
 		<h1 class="display-4">회원 가입</h1>
 		<br>
-		<form action="signInsert.jsp" method="post">
-			<table>
-				<tr>
-					<td><input type="number" name="idx" placeholder="회원번호"
-						maxlength="4" required></td>
-				</tr>
+		<div class="row">
+			<div class="col-sm-3">
+				<form action="signInsert.jsp" method="post">
+					<table class="table">
+						<tr>
+							<td><input type="number" name="idx" placeholder="회원번호"
+								maxlength="4" required></td>
+						</tr>
 
-				<tr>
-					<td><input type="text" name="mId" placeholder="아이디" required></td>
-				</tr>
+						<tr>
+							<td><input type="text" name="mId" placeholder="아이디" required></td>
+						</tr>
 
-				<tr>
-					<td><input type="text" name="mPx" placeholder="비밀번호" required></td>
-				</tr>
+						<tr>
+							<td><input type="text" name="mPx" placeholder="비밀번호"
+								required></td>
+						</tr>
 
-				<tr>
-					<td><input type="text" name="mName" placeholder="이름" required></td>
-				</tr>
+						<tr>
+							<td><input type="text" name="mName" placeholder="이름"
+								required></td>
+						</tr>
 
-				<tr>
-					<td><input type="file" name="mPhoto"></td>
-				</tr>
+						<tr>
+							<td><input type="file" name="mPhoto"></td>
+						</tr>
 
-				<tr>
-					<td><input type="submit" value="회원가입"></td>
-				</tr>
-			</table>
-		</form>
+						<tr>
+							<td><input type="submit" class="btn btn-info" value="회원가입"></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+
+			<div class="col-sm-3"></div>
+
+			<div class="col-sm-6"></div>
+		</div>
 	</div>
 
 
