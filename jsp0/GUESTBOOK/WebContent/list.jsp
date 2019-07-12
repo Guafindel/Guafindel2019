@@ -53,7 +53,7 @@
 		<h1>방명록 글쓰기</h1>
 		<hr>
 		<div class="row">
-			<div class="col-sm-3">
+			<div class="col-md-4">
 				<form action="writeMessage.jsp" method="post">
 					<table class="table">
 
@@ -94,7 +94,8 @@
 							메세지 번호 : <%= message.getId() %> <br>
 							손님 이름 : <%= message.getGuestName() %><br>
 							메세지 : <%= message.getMessage() %><br>
-							<a href="#">삭제하기</a>
+							<a href="confirmDeletion.jsp?messageId=<%=message.getId() %>">삭제하기</a>
+							<!-- messageId는 넘어간 jsp 페이지에서 받을 id값을 의미한다. -->
 						</div>
 						<%
 						}
@@ -113,7 +114,7 @@
 			
 				%>
 			</div>
-			<div class="col-sm-8"></div>
+			
 		</div>
 	</div>
 

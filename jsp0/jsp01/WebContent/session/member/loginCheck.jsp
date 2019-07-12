@@ -31,8 +31,8 @@
 	<h1><%= loginInfo.getuName() %>님 로그인 상태입니다.</h1>
 	<h3>
 		id = <%= loginInfo.getuId() %> <br>
-		nickname = <%= loginInfo.getuNickname() %> <br>
-		grade = <%= loginInfo.getuGrade() %> <br>
+		<%-- nickname = <%= loginInfo.getuNickname() %> <br>
+		grade = <%= loginInfo.getuGrade() %> <br> --%>
 		photo = <%= loginInfo.getuPhoto() %> <br>
 		pNum = <%= loginInfo.getuPnum() %> <br>
 	</h3>
