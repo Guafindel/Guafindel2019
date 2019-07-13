@@ -47,15 +47,15 @@
 			<table>
 				<tr>
 					<td>아이디(이메일)</td>
-					<td><input type="email" name="id" value="<%= userId  %>"></td>
+					<td><input type="email" name="id" value="<%= userInfo.getId()  %>"></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" name="pw" value="<%= userPw  %>"></td>
+					<td><input type="password" name="pw" value="<%= userInfo.getPw() %>"></td>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="name" value="<%= userName  %>"></td>
+					<td><input type="text" name="name" value="<%= userInfo.getName()  %>"></td>
 				</tr>
 				<tr>
 					<td>사진</td>

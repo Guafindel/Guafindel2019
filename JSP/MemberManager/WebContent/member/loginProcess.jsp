@@ -46,11 +46,11 @@
 			<table>
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="id" value="<%= id%>"></td>
+					<td><input type="text" name="id" value="<%= userInfo.getId()%>"></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="text" name="pw" value="<%= pw%>"></td>
+					<td><input type="text" name="pw" value="<%= userInfo.getPw()%>"></td>
 				</tr>
 				<tr>
 					<td></td>
