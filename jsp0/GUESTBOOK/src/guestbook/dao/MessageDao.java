@@ -77,9 +77,7 @@ public class MessageDao {
 				
 			}
 			
-				
-				
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
