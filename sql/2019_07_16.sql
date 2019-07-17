@@ -64,12 +64,14 @@ DROP TABLE company;
 
 -- company
 CREATE TABLE company (
-	company_ID    VARCHAR(50) NOT NULL, -- company_ID
-	company_Pw    VARCHAR(30) NOT NULL,     -- company_Pw
-	company_Name  VARCHAR(50) NOT NULL,     -- company_Name
-	company_Email VARCHAR(40) NOT NULL,     -- company_Email
-	company_Num   VARCHAR(20) NOT NULL      -- company_Num
+	company_ID    VARCHAR2(50) NOT NULL, -- company_ID
+	company_Pw    VARCHAR2(30) NOT NULL,     -- company_Pw
+	company_Name  VARCHAR2(50) NOT NULL,     -- company_Name
+	company_Email VARCHAR2(40) NOT NULL,     -- company_Email
+	company_Num   VARCHAR2(20) NOT NULL      -- company_Num
 );
+
+DROP TABLE company;
 
 -- company �⺻Ű
 CREATE UNIQUE INDEX PK_company
