@@ -23,6 +23,9 @@ public class FrontController extends HttpServlet {
 	
 	Map<String, Service> commands = new HashMap<String, Service>();
 	
+	
+	
+	
 	public FrontController() {
 		// /, /greeting, /now/date, 
 		commands.put("/", new GreetingService());

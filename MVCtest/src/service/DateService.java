@@ -14,6 +14,7 @@ public class DateService implements Service {
 		//view 지정 반환
 		
 		
+		
 		return "/datePage.jsp";
 	}
 	
