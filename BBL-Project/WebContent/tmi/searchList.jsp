@@ -1,4 +1,3 @@
-<%@page import="javafx.scene.control.Alert"%>
 <%@page import="tmiService.SearchService"%>
 <%@page import="tmiService.ListService"%>
 <%@page import="tmi.Tmi"%>
