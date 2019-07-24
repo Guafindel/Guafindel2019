@@ -51,8 +51,13 @@ ALTER TABLE adver
 		REFERENCES company ( -- company
 			company_ID -- company_ID
 		);
+        
+select * from adver;
+select * from company;
 
+commit;
 
+select * from adver;
 ----------------------------------------------------------  
         
 -- company
@@ -70,6 +75,17 @@ CREATE TABLE company (
 	company_Email VARCHAR2(40) NOT NULL,     -- company_Email
 	company_Num   VARCHAR2(20) NOT NULL      -- company_Num
 );
+CREATE sequence COMPANY_ID_SEQ;
+DROP SEQUENCE COMPANY_ID_SEQ;
+
+insert into company (company_ID, company_Pw, company_Name, company_Email, company_Num)
+values(company_id_seq.nextval, 'won', 'jong', 'guafindel', 'king'); 
+
+insert into company (company_ID, company_Pw, company_Name, company_Email, company_Num)
+values('guafindel', '7934', 'Johsua', 'guafindel@gmail.com', '901026'); 
+
+select * from company;
+SELECT * FROM ADVER;
 
 DROP TABLE company;
 
@@ -78,6 +94,7 @@ CREATE UNIQUE INDEX PK_company
 	ON company ( -- company
 		company_ID ASC -- company_ID
 	);
+desc adver;
 
 -- company
 ALTER TABLE company
@@ -86,3 +103,13 @@ ALTER TABLE company
 		PRIMARY KEY (
 			company_ID -- company_ID
 		);
+INSERT INTO adver (adver_ID, company_ID, adver_Title, adver_Content, adver_Photo)
+VALUES (adver_adver_ID_SEQ.nextval, 'com123', '123', '123', '13513');
+
+select * from adver;
+commit;
+
+select adver_ID, company_ID, adver_Title, adver_Content, 
+                adver_Date, adver_Photo from (select rownum rnum, adver_ID, company_ID, 
+				adver_Title, adver_Content, adver_Date, adver_Photo from (select * from 
+				adver m order by m.adver_ID desc) where rownum <= ?) where rnum >= ?;

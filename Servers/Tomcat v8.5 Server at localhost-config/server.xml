@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="GUESTBOOK_JJONG" path="/gbj" reloadable="true" source="org.eclipse.jst.jee.server:GUESTBOOK_JJONG"/><Context docBase="MemberManager" path="/mm" reloadable="true" source="org.eclipse.jst.jee.server:MemberManager"/><Context docBase="First2Web" path="/web" reloadable="true" source="org.eclipse.jst.jee.server:First2Web"/><Context docBase="JDBC-WEB" path="/jdbc" reloadable="true" source="org.eclipse.jst.jee.server:JDBC-WEB"/><Context docBase="jsp01" path="/jsp01" reloadable="true" source="org.eclipse.jst.jee.server:jsp01"/><Context docBase="bootstrap" path="/bootstrap" reloadable="true" source="org.eclipse.jst.jee.server:bootstrap"/><Context docBase="GUESTBOOK" path="/gb" reloadable="true" source="org.eclipse.jst.jee.server:GUESTBOOK"/><Context docBase="poolle" path="/poolle" reloadable="true" source="org.eclipse.jst.jee.server:poolle"/><Context docBase="BBL_pro" path="/BBL_pro" reloadable="true" source="org.eclipse.jst.jee.server:BBL_pro"/><Context docBase="MVCtest" path="/MVCtest" reloadable="true" source="org.eclipse.jst.jee.server:MVCtest"/></Host>
+      </Host>
     </Engine>
   </Service>
 </Server>

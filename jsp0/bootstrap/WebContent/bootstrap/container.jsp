@@ -10,11 +10,14 @@
 <!-- 뷰포트 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 스타일 링크 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <!-- 제이쿼리 링크 -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
 
 <!-- 스타일 시작 -->
@@ -32,8 +35,20 @@
 		<p>컨테이너는 보면 알 수 있듯이 width값을 중간 부분부터 들어가는걸 알수 있어.</p>
 	</div>
 
-<!-- 부트스트랩 js -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<ul class="pagination justify-content-center">
+		<li class="page-item"><a class="page-link"
+			href="javascript:void(0);">Previous</a></li>
+		<li class="page-item"><a class="page-link"
+			href="javascript:void(0);">1</a></li>
+		<li class="page-item"><a class="page-link"
+			href="javascript:void(0);">2</a></li>
+		<li class="page-item"><a class="page-link"
+			href="javascript:void(0);">Next</a></li>
+	</ul>
+
+	<!-- 부트스트랩 js -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 <!-- 바디 끝 -->
