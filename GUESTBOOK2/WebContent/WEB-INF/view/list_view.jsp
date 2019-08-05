@@ -37,13 +37,18 @@
 			${viewData.endRow} <br> --%>
 		</h3>
 		
+		<h1>방명록</h1>
+		
+		<div style="text-align: right; margin-bottom:10px;"><a href="guestWriteForm">글 작성하기</a></div>
+		
+		
 		<c:if test="${viewData.messageTotalCount > 0}">
 
 		<c:forEach items="${viewData.messageList}" var="message">
 			<div class="jumbotron">
 				메세지 번호 : ${message.id}<br> 손님 이름 : ${message.guestName}<br>
 				메세지 : ${message.message}<br> <a
-					href="confirmDeletion.jsp?messageId=${message.id}">삭제하기</a>
+					href="guestDelForm?messageId=${message.id}">삭제하기</a>
 				<!-- messageId는 넘어간 jsp 페이지에서 받을 id값을 의미한다. -->
 			</div>
 		</c:forEach>

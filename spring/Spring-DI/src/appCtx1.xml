@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<!-- MemberDao 객체를 bean 등록, 식별자는 memberDao -->
+	<bean id="memberDao" class="member.MemberDao" />
+	
+	<!-- 생성자 주입 방식 -->
+	<!-- <bean id="registService" class="member.MemberRegisterService">
+		<constructor-arg>
+			<ref bean="memberDao"/> ref bean의 memberDao는 윗 줄에 작성된 id="memberDao" 식별자를 뜻함
+		</constructor-arg>
+	</bean> -->
+	
+	<!-- 프로퍼티 주입 방식 -->
+	<bean id="registService" class="member.MemberRegisterService">
+		<property name="memberDao"> <!-- 참조하는 서비스의 set메소드를 호출한다. -->
+			<!-- <ref bean="memberDao"/> -->
+			<bean class="member.MemberDao" />
+		</property>
+	</bean>
+	
+	<!-- 생성자 주입 방식 -->
+	<!-- <bean id="changePwService" class="member.ChangePasswordService" >
+		<constructor-arg ref="memberDao" />
+	</bean> -->
+	
+	<!-- 프로퍼티 주입 방식 -->
+	<!-- <bean id="changePwService" class="member.ChangePasswordService" p:memberDao-ref="memberDao">
+		<property name="memberDao">
+			<ref bean="memberDao"/>
+		</property>
+		
+	</bean> -->
+	<bean id="changePwService" class="member.ChangePasswordService">
+		<property name="memberDao">
+			<!-- <ref bean="memberDao"/ -->
+			<bean class="member.MemberDao"/>
+		</property>
+	</bean>
+
+</beans>

@@ -14,9 +14,9 @@
 	String  msg = "";
 	
 	//서비스 객체 생성
-	DeleteMessageService service = DeleteMessageService.getInstance();
+	/* DeleteMessageService service = DeleteMessageService.getInstance(); */
 	
-	try {
+	/* try {
 		resultCnt = service.deleteMessage(messageId, password);
 		chk = true;
 		
@@ -26,7 +26,7 @@
 		msg = e.getMessage();
 	} catch ( InvalidMessagePasswordException e ) {
 		msg = e.getMessage();
-	}
+	} */
 	
 
 %>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<context:annotation-config />
+	
+	<!-- MemberDao 객체를 bean 등록, 식별자는 memberDao -->
+	<bean id="memberDao" class="member.MemberDao">
+		<qualifier value="memberDao"/>
+	</bean>
+	
+	
+	<!-- 인터페이스와 그것을 구현한 클래스는 이렇게 다른 코드로 주입을 작성하지만 결국 받아오는 것은 같은 객체가 된다. 따라서 이들을 구분하기 위해서 qualifier이 필요한 것이다. -->
+	<bean id="dao" class="member.Dao" >
+		<qualifier value="dao"/>
+	</bean>
+	
+	<bean id="boardDao" class="member.BoardDao">
+		<qualifier value="boardDao"/>
+	</bean>	
+	
+	
+	<bean id="registService" class="member.MemberRegisterService">
+	
+	</bean>
+	
+	
+	<bean id="changePwService" class="member.ChangePasswordService">
+		
+	</bean>
+
+</beans>

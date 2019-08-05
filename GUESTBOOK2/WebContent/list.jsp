@@ -14,10 +14,10 @@
 	}
 	
 	//핵심처리할 서비스 객체
-	GetMessageListService service = GetMessageListService.getInstance();
+	/* GetMessageListService service = GetMessageListService.getInstance() */;
 	
 	//응답 데이터의 결과 
-	MessageListView viewData = service.getMessageListView(pageNumber);
+	/* MessageListView viewData = service.getMessageListView(pageNumber); */
 	
 %>
 <!DOCTYPE html>
@@ -80,7 +80,7 @@
 					</table>
 				</form>
 				<hr>
-				<%
+				<%-- <%
 					if(viewData.isEmpty()) {
 						%>
 						<h1><small>등록된 메세지가 없습니다.</small></h1>
@@ -112,7 +112,7 @@
 				}
 					
 			
-				%>
+				%> --%>
 			</div>
 			
 		</div>

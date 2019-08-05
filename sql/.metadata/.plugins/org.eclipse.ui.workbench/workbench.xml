@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="14" version="2.0">
 <workbenchAdvisor/>
-<window height="1048" maximized="true" width="978" x="-9" y="-9">
+<window height="1048" width="978" x="951" y="-9">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -30,8 +30,8 @@
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="boolae0.3.exerd" partName="boolae0.3.exerd" title="boolae0.3.exerd" tooltip="C:\Users\guafi\Downloads\boolae0.3.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/Users/guafi/Downloads/boolae0.3.exerd"/>
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="member.exerd" partName="member.exerd" path="C:/Users/guafi/git/Guafindel2019/sql/test/member.exerd" title="member.exerd" tooltip="test/member.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test/member.exerd"/>
 </editor>
 </editors>
 <views>
@@ -55,7 +55,9 @@
 <view id="com.tomato.exerd.modelview3.ModelView3" partName="모델">
 <viewState/>
 </view>
-<view id="org.eclipse.ui.console.ConsoleView" partName="콘솔"/>
+<view id="org.eclipse.ui.console.ConsoleView" partName="콘솔">
+<viewState/>
+</view>
 <view id="com.tomato.exerd.ui.views.domain" partName="도메인">
 <viewState/>
 </view>
@@ -170,6 +172,7 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/test/guestbook.exerd"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/guafi/Downloads/BBOOLRae0.2.exerd"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/guafi/Downloads/boolae0.3.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/test/member.exerd"/>
 </editors>
 <item historyLabel="guestbook.exerd" index="0"/>
 <item historyLabel="bboolrae.exerd" index="1"/>
@@ -181,7 +184,8 @@
 <item historyLabel="bboolrae.exerd" index="1"/>
 <item historyLabel="guestbook.exerd" index="3"/>
 <item historyLabel="copy_of_bboolrae.exerd" index="2"/>
-<item active="true" historyLabel="boolae0.3.exerd" index="5"/>
+<item historyLabel="boolae0.3.exerd" index="5"/>
+<item active="true" historyLabel="member.exerd" index="6"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -199,6 +203,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="member.exerd" tooltip="test/member.exerd">
+<persistable path="/test/member.exerd"/>
+</file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="boolae0.3.exerd" tooltip="C:\Users\guafi\Downloads\boolae0.3.exerd">
 <persistable uri="file:/C:/Users/guafi/Downloads/boolae0.3.exerd"/>
 </file>
