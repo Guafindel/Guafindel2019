@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,19 +29,20 @@
 <!-- 바디 시작 -->
 <body>
 	<div class="container">
-		<h1>${resultCnt} 개 메세지가 입력되었습니다.</h1>
-		<h1>
-			<c:if test="${resultCnt==1}">
-			정상적으로 입력되었습니다.
-			</c:if>
-
-			<c:if test="${!(resultCnt==1)}">
-			입력 실패했습니다.
-			</c:if>
-		</h1>
-		
-		<a href="<c:url value="/guest/list" />">리스트</a>
+		<h3>
+			메세지 삭제 <small>비밀번호 확인</small>
+		</h3>
+		<form method="post">
+			<div class="jumbotron">
+				<p>${param.messageId}번 메세지를 삭제하시려면 비밀번호를 입력하세요.</p>
+				<input type="hidden" name="messageId"
+					value="<%=request.getParameter("messageId")%>"> <input
+					type="password" name="password" placeholder="비밀번호" required><br><br>
+				<input type="submit" class="btn btn-info" value="메세지 삭제">
+			</div>
+		</form>
 	</div>
+
 
 
 	<!-- 부트스트랩 js -->

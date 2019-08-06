@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,20 +28,14 @@
 </head>
 <!-- 바디 시작 -->
 <body>
-	<div class="container">
-		<h1>${resultCnt} 개 메세지가 입력되었습니다.</h1>
-		<h1>
-			<c:if test="${resultCnt==1}">
-			정상적으로 입력되었습니다.
-			</c:if>
-
-			<c:if test="${!(resultCnt==1)}">
-			입력 실패했습니다.
-			</c:if>
-		</h1>
-		
-		<a href="<c:url value="/guest/list" />">리스트</a>
+	<!-- 푸터 시작 -->
+	<hr>
+	<div class="footer">
+		<div class="container-fluid">
+			<p style="text-align: center;">Johsua</p>
+		</div>
 	</div>
+	<!-- 푸터 끝 -->
 
 
 	<!-- 부트스트랩 js -->

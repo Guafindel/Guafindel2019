@@ -29,21 +29,35 @@
 </head>
 <!-- 바디 시작 -->
 <body>
-	<div class="container">
-		<h1>${resultCnt} 개 메세지가 입력되었습니다.</h1>
-		<h1>
-			<c:if test="${resultCnt==1}">
-			정상적으로 입력되었습니다.
-			</c:if>
 
-			<c:if test="${!(resultCnt==1)}">
-			입력 실패했습니다.
-			</c:if>
-		</h1>
-		
-		<a href="<c:url value="/guest/list" />">리스트</a>
+	<!-- 헤더 시작 -->
+	<%@ include file="/WEB-INF/views/frame/header.jsp"%>
+	<!-- 헤더 끝 -->
+
+	<!-- 컨텐츠 시작 -->
+	<div class="content">
+		<div class="container">
+			<h1 class="display-6">회원 가입 요청 처리 페이지</h1>
+			<hr>
+			
+			<script>
+				var chk = ${rCnt};
+				if(chk>0) {
+					alert('회원 가입 성공했습니다.');
+					location.href='../main';
+				} else {
+					alert('회원 가입 실패했습니다. 다시 시도해보세요.');
+					location.href='../main';
+				}
+			</script>
+			
+		</div>
 	</div>
+	<!-- 컨텐츠 끝 -->
 
+	<!-- 푸터 시작 -->
+	<%@ include file="/WEB-INF/views/frame/footer.jsp"%>
+	<!-- 푸터 끝 -->
 
 	<!-- 부트스트랩 js -->
 	<script

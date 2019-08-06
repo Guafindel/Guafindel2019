@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,21 +29,27 @@
 </head>
 <!-- 바디 시작 -->
 <body>
-	<div class="container">
-		<h1>${resultCnt} 개 메세지가 입력되었습니다.</h1>
-		<h1>
-			<c:if test="${resultCnt==1}">
-			정상적으로 입력되었습니다.
-			</c:if>
 
-			<c:if test="${!(resultCnt==1)}">
-			입력 실패했습니다.
-			</c:if>
-		</h1>
+	<!-- 헤더 시작 -->
+	<%@ include file="/WEB-INF/views/frame/header.jsp" %>
+	<!-- 헤더 끝 -->
+	
+	<!-- 컨텐츠 시작 -->
+	<div class="content">
+		<div class="container">
+			<h1 class="display-6">회원관리 프로그램의 메인 페이지에 오신 것을 환영합니다.</h1>
+			
 		
-		<a href="<c:url value="/guest/list" />">리스트</a>
+		</div>
 	</div>
+	<!-- 컨텐츠 끝 -->
+	
+	<!-- 푸터 시작 -->
+	<%@ include file="/WEB-INF/views/frame/footer.jsp" %>
+	<!-- 푸터 끝 -->
 
+
+	
 
 	<!-- 부트스트랩 js -->
 	<script
