@@ -12,4 +12,6 @@ https://github.com/Guafindel/Guafindel2019/tree/master/JSP/First2Web/WebContent/
 
 https://github.com/Guafindel/Guafindel2019/tree/master/jsp0/jsp01/WebContent/member = 회원관리 개선 페이지
 
-https://github.com/Guafindel/Guafindel2019/tree/master/jsp0/jsp01/WebContent/won_member = 회원관리 스스로 만들어보
+https://github.com/Guafindel/Guafindel2019/tree/master/jsp0/jsp01/WebContent/won_member = 회원관리
+
+https://github.com/Guafindel/Guafindel2019/tree/master/spring/GuestBookSpringMVC = 방명록(스프링)
