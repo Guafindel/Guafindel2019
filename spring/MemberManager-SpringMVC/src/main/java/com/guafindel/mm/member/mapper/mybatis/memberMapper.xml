@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.guafindel.mm.member.dao.MemberSessionDao">
+
+	<resultMap type="com.guafindel.mm.member.domain.MemberInfo" id="resultMemberInfo">
+		<id property="idx" column="idx"/>
+		<result property="mId" column="mId"/>
+		<result property="mPw" column="mPw"/>
+		<result property="mName" column="mName"/>
+		<result property="mPhoto" column="mPhoto"/>
+		<result property="regDate" column="date"/>
+	</resultMap>
+
+	<!-- 회원가입 -->
+	<insert id="insert" parameterType="com.guafindel.mm.member.domain.MemberInfo">
+		insert into guafindel_db.member (mId, mPw, mName, mPhoto)
+		values (#{mId}, #{mPw}, #{mName}, #{mPhoto})
+	</insert>
+	
+	<!-- 회원로그인 -->
+	<select id="select" resultMap="resultMemberInfo">
+		select * from guafindel_db.member
+		where mid=#{id}
+	</select>
+	
+	<!-- 아이디 중복체크 -->
+	<select id="select2" resultMap="resultMemberInfo">
+		select * from guafindel_db.member
+		where mid=#{id}
+	</select>
+
+	<!-- 회원 리스트의 개수 : 검색을 위해 동적쿼리 적용 -->
+	<select id="selectTotalCount"
+		parameterType="com.guafindel.mm.member.domain.SearchParam"
+		resultType="int">
+		select count(*) from guafindel_db.member
+
+		<where>
+
+			<if test="stype != null">
+				<if test="stype == 'both'">
+					mid LIKE CONCAT('%', #{keyword}, '%') or mname LIKE
+					CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="stype == 'id'">
+					mid LIKE CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="stype == 'name'">
+					mname LIKE CONCAT('%', #{keyword}, '%')
+				</if>
+
+			</if>
+
+
+		</where>
+
+	</select>
+
+
+	<!-- 회원 리스트 : 검색을 위해 동적쿼리 적용 -->
+	<select id="selectList" parameterType="map"
+		resultMap="resultMemberInfo">
+		SELECT * FROM guafindel_db.member
+		<where>
+			<if test="search != null">
+				<if test="search.stype == 'both'">
+					<include refid="whereId"/>
+					<include refid="whereName"/>
+					<!-- uid LIKE CONCAT('%', #{search.keyword}, '%') or uname LIKE CONCAT('%', #{search.keyword}, '%') -->
+				</if>
+				<if test="search.stype == 'id'">				
+					<include refid="whereId"/>
+					<!-- uid LIKE CONCAT('%', #{search.keyword}, '%') -->
+				</if>
+				<if test="search.stype == 'name'">
+					<include refid="whereName"/>
+					<!-- uname LIKE CONCAT('%', #{search.keyword}, '%') -->
+				</if>
+			</if>
+		</where>
+		<!-- limit #{param1}, #{param2} -->
+		limit #{index}, #{count}
+	</select>
+	
+	<sql id="whereId">
+		or mid LIKE CONCAT('%', #{search.keyword}, '%')
+	</sql>
+		
+	<sql id="whereName">
+		or mname LIKE CONCAT('%', #{search.keyword}, '%')
+	</sql>
+
+
+	<!-- 회원 정보 수정을 위한 정보 획득 -->
+	<select id="selectMemberByIdx" resultMap="resultMemberInfo">
+		select * from guafindel_db.member
+		where idx=#{idx}
+	</select>
+
+	<!-- 회원정보수정 -->
+	<update id="memberUpdate"
+		parameterType="com.guafindel.mm.member.domain.MemberInfo">
+		update guafindel_db.member set mname=#{mName}, mpw=#{mPw},
+		mphoto=#{mPhoto} where idx=#{idx}
+	</update>
+
+	
+	<!-- 회원정보 삭제 -->
+	<delete id="memberDelete">
+		DELETE FROM GUAFINDEL_DB.MEMBER WHERE IDX = #{idx}
+	</delete>
+	
+	<!-- 전체 회원 리스트 구하기 -->
+	<select id="selectAllList" resultMap="resultMemberInfo">
+		select * from guafindel_db.member order by mname
+	</select>
+	
+	
+
+</mapper>

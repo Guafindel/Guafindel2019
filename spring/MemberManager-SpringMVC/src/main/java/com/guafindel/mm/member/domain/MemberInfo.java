@@ -2,11 +2,14 @@ package com.guafindel.mm.member.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class MemberInfo {
 
 	//접근제어 지시자 private
 	private int idx;
 	private String mId;
+	@JsonIgnore
 	private String mPw;
 	private String mName;
 	private String mPhoto;

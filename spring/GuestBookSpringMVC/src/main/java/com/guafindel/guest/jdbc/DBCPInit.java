@@ -36,7 +36,7 @@ public class DBCPInit extends HttpServlet {
 	private void initConnectionPool() {
 
 		try {
-			String jdbcDriver = "jdbc:oracle:thin:localhost:1521:orcl";
+			String jdbcDriver = "jdbc:oracle:thin:@localhost:1521:orcl";
 			String username = "scott";
 			String pw = "tiger";
 			// 커넥션풀이 새로운 커넥션을 생성할 때 사용할 커넥션팩토리를 생성.

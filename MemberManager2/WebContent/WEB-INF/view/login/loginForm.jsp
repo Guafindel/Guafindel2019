@@ -39,7 +39,7 @@
 			<h1 class="display-6">로그인 페이지 입니다.</h1>
 			<hr>
 
-			<form action="login.do" method="post">	<!-- 폼태그를 쓴다면 post를 써야한다. -->
+			<form method="post">	<!-- 폼태그를 쓴다면 post를 써야한다. -->
 
 				<div class="form-group">
 					<label for="mId">아이디</label> <input type="text"

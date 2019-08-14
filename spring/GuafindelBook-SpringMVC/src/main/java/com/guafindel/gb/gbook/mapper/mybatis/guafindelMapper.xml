@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.guafindel.gb.gbook.dao.GbookSessionDao">
+				
+
+	<resultMap type="com.guafindel.gb.gbook.domain.Gbook" id="gbookResultMap">
+	
+		<id property="idx" column="idx" />
+		<result property="gId" column="gId"/>
+		<result property="gPw" column="gPw"/>
+		<result property="gName" column="gName"/>
+		<result property="gPhoto" column="gPhoto"/>
+		<result property="regDate" column="date"/>
+
+	</resultMap>
+
+	<insert id ="insert" parameterType="com.guafindel.gb.gbook.dao.GbookSessionDao">
+		INSERT INTO GUAFINDEL_DB.GBOOK (GID, GPW, GNAME, GPHOTO)
+		VALUES(#{gId}, #{gPw}, #{gName}, #{gPhoto})
+	</insert>
+	
+	
+	<select id="select" resultMap="gbookResultMap">
+		SELECT * FROM GUAFINDEL_DB.GBOOK WHERE GID = #{gId}
+	</select>
+	
+</mapper>

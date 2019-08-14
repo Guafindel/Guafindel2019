@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace는 실수 속성이다. dao에서 식별하기 위한 이름 -->
+<mapper
+	namespace="com.guafindel.guest.mapper.mybatis.guestMapper">
+
+	<resultMap id="messageResultMap"
+			   type="com.guafindel.guest.domain.Message">
+		<id property="id" column="message_id" />
+		<result property="guestName" column="guest_name" />
+		<result property="password" column="password" />
+		<result property="message" column="message" />
+	</resultMap>
+
+	<insert id="insertMessage"
+		parameterType="com.guafindel.guest.domain.Message">
+		INSERT INTO GUESTBOOK_MESSAGE
+		(MESSAGE_ID, GUEST_NAME,
+		PASSWORD, MESSAGE)
+		VALUES (GM_MID_SEQ.nextval, #{guestName},
+		#{password}, #{message})
+	</insert>
+
+	<select id="selectCount" resultType="int">
+		SELECT COUNT(*) FROM
+		GUESTBOOK_MESSAGE
+	</select>
+
+	<select id="selectList"
+			parameterType="map"
+			resultMap="messageResultMap" >
+	
+		<![CDATA[
+		select message_id, guest_name, password, message from
+		( 
+		select rownum rnum, message_id, guest_name, password, message from ( 
+		select * from guestbook_message m order by m.message_id desc  )
+		where rownum <= #{endRow}
+		) where rnum >= #{firstRow}
+		]]>
+		
+	</select>
+
+	<select id="select" resultMap="messageResultMap">
+		select * from
+		guestbook_message where message_id = #{id}
+	</select>
+
+	<delete id="deleteMessage">
+		DELETE FROM GUESTBOOK_MESSAGE WHERE MESSAGE_ID =
+		#{id}
+	</delete>
+
+
+
+
+</mapper>

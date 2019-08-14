@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +39,6 @@
 </head>
 <!-- 바디 시작 -->
 <body>
-
 	<!-- 헤더 시작 -->
 	<%@ include file="/WEB-INF/views/frame/header.jsp"%>
 	<!-- 헤더 끝 -->
@@ -49,7 +46,7 @@
 	<!-- 컨텐츠 시작 -->
 	<div class="content">
 		<div class="container">
-			<h1 class="display-6">회원 가입 페이지 입니다.</h1>
+			<h1 class="display-6">회원 가입 페이지입니다.</h1>
 			<hr>
 
 			<form id="regform" method="post" enctype="multipart/form-data">
@@ -90,17 +87,19 @@
 	<%@ include file="/WEB-INF/views/frame/footer.jsp"%>
 	<!-- 푸터 끝 -->
 
+	<!-- 부트스트랩 js -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 	<script>
-		/* $(document).ready(function() {
+		$(document).ready(function() {
 
 			$('#mId').focusout(function() {
 
-				//aJax 비동기 통신 id 전송, 사용 유무에 대한 결과 값을 반환
+				// aJax 비동기 통신 id 전송 사용 유무에 대한 결과 값을 반환
 
 				$.ajax({
-
-					url : 'idCheck.do',
+					url : 'idCheck1',
 					type : 'get',
 					data : {
 						id : $(this).val()
@@ -114,9 +113,8 @@
 
 						if (data == 'Y') {
 							$('#idcheck').prop('checked', true);
-							$('#idcheckmsg').html('사용가능한 아이디 입니다.');
+							$('#idcheckmsg').html('사용가능한 멋진 아이디 입니다.');
 							$('#idcheckmsg').addClass('color_blue');
-
 						} else {
 							$('#idcheck').prop('checked', false);
 							$('#idcheckmsg').html('사용중인 아이디 이거나 탈퇴한 아이디 입니다.');
@@ -124,28 +122,21 @@
 						}
 
 					}
-
 				});
 
 				$('#regform').submit(function() {
 
 					if (!$('#idcheck').prop('checked')) {
-
 						alert('아이디 중복확인이 필요합니다.');
-
 						return false;
-
 					}
+
 				});
 
 			});
 
-		}); */
+		});
 	</script>
-
-	<!-- 부트스트랩 js -->
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 <!-- 바디 끝 -->

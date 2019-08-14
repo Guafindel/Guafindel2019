@@ -42,6 +42,12 @@
 			<li><a href="<c:url value="/header/getHeader" />">/header/getHeader</a></li>
 			<li><a href="<c:url value="/search/search" />">/search/search</a></li>
 			<li><a href="<c:url value="/fileupload/uploadForm" />">/fileupload/uploadForm</a></li>
+			<li><a href="<c:url value="/restapi/hello" />">/restapi/hello</a></li>
+			<li><a href="<c:url value="/restapi/login" />">/restapi/login</a></li>
+			<li><a href="<c:url value="/restapi/loginList" />">/restapi/loginList</a></li>
+			<li><a href="<c:url value="/restapi/loginMap" />">/restapi/loginMap</a></li>
+		
+			
 
 		</ul>
 	</div>

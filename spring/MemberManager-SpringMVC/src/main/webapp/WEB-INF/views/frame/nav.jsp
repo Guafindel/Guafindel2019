@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,18 +35,33 @@
 				href="<c:url value='/'/>">홈</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="<c:url value='/member/regist'/>">회원가입</a></li>
+
+			<li class="nav-item"><c:if test="${logininfo eq null}">
+					<a class="nav-link" href="<c:url value='/member/login'/>">로그인</a>
+				</c:if></li>
+
+			<li class="nav-item"><c:if test="${logininfo ne null}">
+					<a class="nav-link" href="<c:url value='/member/logout.do'/>">로그아웃</a>
+				</c:if></li>
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/member/loginForm.do'/>">로그인</a></li>
+				href="<c:url value='/member/mypage'/>">MyPage1</a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/member/mypage/mypage.do'/>">MyPage1</a></li>
+				href="<c:url value='/member/mypage'/>">MyPage2</a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/member/mypage/mypage.do'/>">MyPage2</a></li>
+				href="<c:url value='/member/memberlistJson1'/>">JsonList1</a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/member/memberList.do'/>">회원리스트</a></li>
+				href="<c:url value='/member/memberlistJson2'/>">JsonList2</a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/member/memberList.do'/>">회원리스트2</a></li>
+				href="<c:url value='/member/memberlistJson3'/>">JsonList3</a></li>			
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/member/logout.do'/>">로그아웃</a></li>
+				href="<c:url value='/member/memberlist'/>">회원리스트</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="<c:url value='/member/memberlist'/>">회원리스트2</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="<c:url value='/rest-api/members'/>">/rest-api/members</a></li>
+				
+				
+
 		</ul>
 
 	</nav>
