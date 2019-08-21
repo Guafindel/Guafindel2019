@@ -40,22 +40,48 @@ div.card {
 	<div class="container">
 		<h1 class="display-6">회원 가입</h1>
 		<hr>
+
 		<form id="form">
-			아이디 <input type="text" name="mId" id="mId"> <br> 
-			비밀번호 <input type="text" name="mPw" id="mPw"> <br> 
-			이름 <input type="text" name="mName" id="mName"> <br> 
-			<input type="submit" value="회원가입">
+			<div class="form-group">
+				아이디 <input type="text" name="mId" id="mId" class="form-control"
+					placeholder="아이디를 입력하세요" required>
+			</div>
+			<div class="form-group">
+				비밀번호 <input type="text" name="mPw" id="mPw" class="form-control"
+					placeholder="비밀번호를 입력하세요" required>
+			</div>
+			<div class="form-group">
+				이름 <input type="text" name="mName" id="mName" class="form-control"
+					placeholder="이름을 입력하세요" required>
+			</div>
+			<input class="btn btn-primary" type="submit" value="회원가입">
 		</form>
+
 	</div>
 
 
 	<script>
 		$(document).ready(function() {
 
-		
 			$('#form').submit(function() {
 
+				alert($('#form').serialize());
+
 				$.ajax({
+
+					url : 'http://localhost:8080/mm/rest/members',
+					type : 'POST',
+					data : $('#form').serialize(),
+					success : function(data) {
+						alert(data);
+
+					}
+
+				});
+
+				return false;
+
+				/* $.ajax({
 
 					url : 'http://localhost:8080/mm/rest-api/members',
 					type : 'POST',
@@ -71,9 +97,24 @@ div.card {
 
 					}
 
-				});
+				}); */
 
-				return false;
+				/* $.ajax({
+
+					url : 'http://localhost:8080/mm/rest/members',
+					type : 'POST',
+					data :  /* { //mId =Arin&mPw=1234&mName=최예원
+						mId : $('#mId').val(),
+						mPw : $('#mPw').val(),
+						mName : $('#mName').val(),
+					},
+				 	success : function(data) {
+						alert(data);
+
+					}
+
+				}); */
+
 			});
 		});
 	</script>

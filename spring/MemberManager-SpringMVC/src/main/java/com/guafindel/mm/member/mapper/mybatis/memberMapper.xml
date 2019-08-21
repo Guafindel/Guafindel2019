@@ -10,16 +10,19 @@
 		<result property="mName" column="mName"/>
 		<result property="mPhoto" column="mPhoto"/>
 		<result property="regDate" column="date"/>
+		<!-- verify, code 추가 -->
+		<result property="verify" column="verify"/>
+		<result property="code" column="code"/>
 	</resultMap>
 
 	<!-- 회원가입 -->
 	<insert id="insert" parameterType="com.guafindel.mm.member.domain.MemberInfo">
-		insert into guafindel_db.member (mId, mPw, mName, mPhoto)
-		values (#{mId}, #{mPw}, #{mName}, #{mPhoto})
+		insert into guafindel_db.member (mId, mPw, mName, mPhoto, code)
+		values (#{mId}, #{mPw}, #{mName}, #{mPhoto}, #{code})
 	</insert>
 	
 	<!-- 회원로그인 -->
-	<select id="select" resultMap="resultMemberInfo">
+	<select id="selectMemberById" resultMap="resultMemberInfo">
 		select * from guafindel_db.member
 		where mid=#{id}
 	</select>
@@ -116,6 +119,14 @@
 		select * from guafindel_db.member order by mname
 	</select>
 	
+	<!-- 이메일 인증 -->
+	<update id="verify">
+		update guafindel_db.member set verify='Y' where mid=#{param1} and code=#{param2}
+	</update>
 	
+	<!-- 임시 비밀번호 생성 -->
+	<update id="findPw">
+		update guafindel_db.member set mpw = #{param1} and where id = #{param2}
+	</update>
 
 </mapper>

@@ -39,6 +39,9 @@ public class MemberRegService implements MemberManagerService {
 	private SqlSessionTemplate template;
 
 	private MemberSessionDao dao;
+	
+	@Autowired
+	private MailSenderService mailService;
 
 	public int memberInsert(HttpServletRequest request, RequestMemberRegist regist) {
 
@@ -68,6 +71,8 @@ public class MemberRegService implements MemberManagerService {
 			}
 			
 			resultCnt = dao.insert(memberinfo);
+			
+			mailService.send(memberinfo.getmId(), memberinfo.getCode());
 
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
@@ -91,7 +96,7 @@ public class MemberRegService implements MemberManagerService {
 
 		dao = template.getMapper(MemberSessionDao.class);
 
-		char chk = dao.select(id) == null ? 'Y' : 'N';
+		char chk = dao.selectMemberById(id)== null ? 'Y' : 'N';
 
 		return chk;
 
@@ -101,7 +106,7 @@ public class MemberRegService implements MemberManagerService {
 
 		dao = template.getMapper(MemberSessionDao.class);
 
-		String chk = dao.select2(id) == null ? "Y" : "N";
+		String chk = dao.selectMemberById(id) == null ? "Y" : "N";
 
 		return chk;
 

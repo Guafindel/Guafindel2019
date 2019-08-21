@@ -30,7 +30,8 @@
 <!-- 바디 시작 -->
 <body>
 	<div class="footer">
-		<div style="text-align: center;" class="container-fluid"><a href="guafindel.tistory.com">Wellcome to Guafindel</a></div>
+		<div style="text-align: center;" class="container-fluid"><a style="cursor: pointer;" onclick="javascript:newin=window.open('about:blank'); 
+			newin.location.href='https://Guafindel.tistory.com';">Wellcome to Guafindel</a></div>
 	</div>
 
 

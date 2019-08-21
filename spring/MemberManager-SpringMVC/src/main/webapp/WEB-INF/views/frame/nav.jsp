@@ -44,9 +44,9 @@
 					<a class="nav-link" href="<c:url value='/member/logout.do'/>">로그아웃</a>
 				</c:if></li>
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/member/mypage'/>">MyPage1</a></li>
+				href="<c:url value='/member/mypage/mypage'/>">MyPage1</a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/member/mypage'/>">MyPage2</a></li>
+				href="<c:url value='/member/mypage/mypage'/>">MyPage2</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="<c:url value='/member/memberlistJson1'/>">JsonList1</a></li>
 			<li class="nav-item"><a class="nav-link"
@@ -54,11 +54,20 @@
 			<li class="nav-item"><a class="nav-link"
 				href="<c:url value='/member/memberlistJson3'/>">JsonList3</a></li>			
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/member/memberlist'/>">회원리스트</a></li>
+				href="<c:url value='/member/memberlist/memberlist'/>">회원리스트</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="<c:url value='/member/memberlist'/>">회원리스트2</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="<c:url value='/rest-api/members'/>">/rest-api/members</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="<c:url value='/hello'/>">/널포인터익셉션 예외처리</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="<c:url value='/mail/send'/>">메일 보내기</a></li>	
+			<li class="nav-item"><a class="nav-link"
+				href="<c:url value='/mail/send2'/>">메일 보내기2</a></li>	
+			<li class="nav-item"><a class="nav-link"
+				href="<c:url value='/mail/helpersend'/>">헬퍼로 메일 보내기2</a></li>	
+				
 				
 				
 

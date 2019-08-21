@@ -43,7 +43,7 @@
 			<script>
 				var chk = ${rCnt};
 				if(chk>0) {
-					alert('회원 가입 성공했습니다.');
+					alert('가입하신 이메일로 인증 메일을 보냈습니다. 확인해주세요.');
 					location.href='../main';
 				} else {
 					alert('회원 가입 실패했습니다. 다시 시도해보세요.');

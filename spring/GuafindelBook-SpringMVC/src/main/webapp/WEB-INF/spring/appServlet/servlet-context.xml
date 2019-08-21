@@ -61,6 +61,38 @@
 		<beans:constructor-arg index="0"
 			ref="sqlSessionFactory" />
 	</beans:bean>
+	
+	<!-- <beans:bean id="authCheck"
+		class="com.guafindel.mm.interceptor.AuthCheckInterceptor" />
+
+	여러개의 인터셉트를 등록할 수 있다.
+	<interceptors>
+		인터셉터 생성 : 로그인 체크
+		<interceptor>
+			<mapping path="/member/mypage/**" />
+			<mapping path="/member/memberlist/**" />
+			예외 경로 설정
+			<exclude-mapping path="/member/mypage/help/**"/>
+			<beans:ref bean="authCheck" />
+		</interceptor>
+	</interceptors> -->
+	
+	<beans:bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<beans:property name="host" value="smtp.gmail.com" />
+		<beans:property name="port" value="587" /><!-- 465 or 25 -->
+		<beans:property name="username" value="sojongwon90@gmail.com" />
+		<beans:property name="password" value="79341818th" />
+		<beans:property name="defaultEncoding" value="utf-8" />
+		<beans:property name="javaMailProperties">
+			<beans:props>
+				<beans:prop key="mail.transport.protocol">smtp</beans:prop>
+				<beans:prop key="mail.smtp.auth">true</beans:prop>
+				<beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+				<beans:prop key="mail.debug">true</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
 
 	<context:component-scan
 		base-package="com.guafindel.gb" />

@@ -9,10 +9,10 @@ import com.guafindel.mm.member.domain.MemberInfo;
 import com.guafindel.mm.member.domain.SearchParam;
 
 public interface MemberSessionDao {
-
+	
 	public int insert(MemberInfo memberinfo);
 	
-	public MemberInfo select(String mId);
+	public MemberInfo selectMemberById(String mId);
 	
 	public MemberInfo select2(String mId);
 	
@@ -28,6 +28,12 @@ public interface MemberSessionDao {
 	
 	//회원의 전체 리스트
 	public List<MemberInfo> selectAllList();
+	
+	//회원 이메일 인증 처리
+	public int verify(String id, String code);
+	
+	//임시 비밀번호 발송
+	public int findPw(String id);
 	
 	
 }

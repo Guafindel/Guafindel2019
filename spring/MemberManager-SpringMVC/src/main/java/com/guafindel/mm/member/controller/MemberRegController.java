@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.guafindel.mm.member.domain.RequestMemberRegist;
+import com.guafindel.mm.member.service.MailSenderService;
 import com.guafindel.mm.member.service.MemberRegService;
 
 @Controller
@@ -17,6 +18,9 @@ public class MemberRegController {
 	
 	@Autowired
 	private MemberRegService registService;
+	
+	@Autowired
+	private MailSenderService mailSenderService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String getForm() {
@@ -34,6 +38,8 @@ public class MemberRegController {
 		System.out.println(regist);
 		
 		model.addAttribute("rCnt", registService.memberInsert(request, regist));
+		
+		//mailSenderService.send(regist.getmId());
 		
 		return "member/regist";
 	}

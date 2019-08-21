@@ -37,8 +37,8 @@
 					<a class="nav-link dropdown-toggle" 
 					data-toggle="dropdown" href="#">회원게시판</a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="<c:url value='/gbook/regist'/>">회원가입</a>
-						<a class="dropdown-item" href="#">두 번째</a> 
+						<a class="dropdown-item" href="<c:url value='regForm.jsp'/>">회원가입</a>
+						<a class="dropdown-item" href="<c:url value='list.jsp'/>">회원목록</a> 
 						<a class="dropdown-item" href="#">세 번째</a>
 					</div>
 				</li>

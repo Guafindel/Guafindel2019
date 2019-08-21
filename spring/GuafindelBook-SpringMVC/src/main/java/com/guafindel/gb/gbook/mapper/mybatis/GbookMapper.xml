@@ -15,11 +15,31 @@
 
 	</resultMap>
 
+	<!-- 회원 가입 -->
 	<insert id ="insert" parameterType="com.guafindel.gb.gbook.dao.GbookSessionDao">
 		INSERT INTO GUAFINDEL_DB.GBOOK (GID, GPW, GNAME, GPHOTO)
 		VALUES(#{gId}, #{gPw}, #{gName}, #{gPhoto})
 	</insert>
 	
+	<!-- 전체 회원 리스트 -->
+	<select id="selectAllList" resultMap="gbookResultMap">
+		SELECT * FROM GUAFINDEL_DB.GBOOK ORDER BY IDX
+	</select>
+	
+	<!-- 회원정보 수정을 위한 idx로 회원 타겟 설정 하기 -->
+	<select id="selectByIdx" resultMap="gbookResultMap">
+		SELECT * FROM GUAFINDEL_DB.GBOOK WHERE IDX = #{idx}
+	</select>
+	
+	<!-- 타겟 설정한 회원의 정보 수정하기 -->
+	<update id="update" parameterType="com.guafindel.gb.gbook.domain.Gbook">
+		UPDATE GUAFINDEL_DB.GBOOK SET GNAME=#{gName}, GPW=#{gPw}, GPHOTO=#{gPhoto} WHERE IDX=#{idx}
+	</update>
+	
+	<!-- 회원정보 삭제하기 -->
+	<delete id="delete">
+		DELETE FROM GUAFINDEL_DB.GBOOK WHERE IDX=#{idx}
+	</delete>
 	
 	<select id="select" resultMap="gbookResultMap">
 		SELECT * FROM GUAFINDEL_DB.GBOOK WHERE GID = #{gId}

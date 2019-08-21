@@ -39,7 +39,8 @@
 			<h1 class="display-6">로그인 페이지 입니다.</h1>
 			<hr>
 
-			<form method="post">	<!-- 폼태그를 쓴다면 post를 써야한다. -->
+			<form method="post">
+				<!-- 폼태그를 쓴다면 post를 써야한다. -->
 
 				<div class="form-group">
 					<label for="mId">아이디</label> <input type="text"
@@ -51,10 +52,38 @@
 						class="form-control" id="mPw" name="mPw"
 						placeholder="비밀번호를 입력하세요." required>
 				</div>
-				
-				<input type="submit" class="btn btn-primary" value="로그인">
+
+				<input type="submit" class="btn btn-primary" value="로그인"> 
+				<button type="button" id="findPw" class="btn btn-primary" data-toggle="modal" data-target="#Modal">
+					비밀번호 찾기
+				</button>
 
 			</form>
+
+			<!-- The Modal -->
+			<div class="modal" id="Modal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">비밀번호 찾기</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+
+						<!-- Modal body -->
+						<div class="modal-body">
+							<input type="text" 
+						</div>
+
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
 
 		</div>
 	</div>
@@ -68,6 +97,15 @@
 	<!-- 부트스트랩 js -->
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<script>
+		$(document).ready(function() {
+
+			$('#findPw').click(function() {
+
+			});
+		});
+	</script>
 
 </body>
 <!-- 바디 끝 -->

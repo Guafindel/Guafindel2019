@@ -22,8 +22,30 @@ public class MemberListController {
 	@Autowired
 	private MemberListService listService;
 
-	@RequestMapping(value = "member/memberlist")
+	@RequestMapping(value = "member/memberlist/memberlist")
 	public String memberList(Model model, @RequestParam(value = "p", defaultValue = "1") int pageNumber,
+			@RequestParam(value = "stype", required = false) String stype,
+			@RequestParam(value = "keyword", required = false) String keyword) {
+
+		SearchParam searchParam = null;
+
+		if (stype != null && keyword != null && !stype.isEmpty() && !keyword.isEmpty()) {
+			searchParam = new SearchParam();
+			searchParam.setStype(stype);
+			searchParam.setKeyword(keyword);
+		}
+
+		ListViewData listData = listService.getListData(pageNumber, searchParam);
+
+		System.out.println("전체 회원의 수 : " + listData.getTotalCount());
+
+		model.addAttribute("viewData", listData);
+
+		return "member/memberList";
+	}
+	
+	@RequestMapping(value = "member/memberlist")
+	public String memberList2(Model model, @RequestParam(value = "p", defaultValue = "1") int pageNumber,
 			@RequestParam(value = "stype", required = false) String stype,
 			@RequestParam(value = "keyword", required = false) String keyword) {
 

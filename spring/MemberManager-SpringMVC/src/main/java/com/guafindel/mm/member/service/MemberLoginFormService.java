@@ -9,7 +9,7 @@ public class MemberLoginFormService implements MemberManagerService {
 
 	public String getViewName(HttpServletRequest request, HttpServletResponse response) {
 		
-		String viewName = "/WEB-INF/view//login/loginForm.jsp";
+		String viewName = "/WEB-INF/view/login/loginForm.jsp";
 		
 		return viewName ;
 	}

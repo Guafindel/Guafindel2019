@@ -25,7 +25,7 @@ import com.guafindel.mm.member.service.MemberRegService;
 // /rest-api/members GET --> 전체 리스트, 페이징 처리된 리스트
 // /rest-api/members/{id} GET --> 회원 한명의 정보를 반환
 // /rest-api/members/ POST --> 회원 정보를 저장
-// /rest-api/members/{id} PUT --> 회원 정보를 저장
+// /rest-api/members/{id} PUT --> 회원 정보를 수정 후저장
 // /rest-api/members/{id} DELETE --? 회원 정보를 삭제
 
 @Controller
