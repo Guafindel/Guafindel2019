@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="14" version="2.0">
 <workbenchAdvisor/>
-<window height="1048" width="978" x="951" y="-9">
+<window height="1048" maximized="true" width="978" x="951" y="-9">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -26,12 +26,16 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="member.exerd" partName="member.exerd" path="C:/Users/guafi/git/Guafindel2019/sql/test/member.exerd" title="member.exerd" tooltip="test/member.exerd" workbook="DefaultEditorWorkbook">
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="member.exerd" partName="member.exerd" path="C:/Users/guafi/git/Guafindel2019/sql/test/member.exerd" title="member.exerd" tooltip="test/member.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test/member.exerd"/>
+</editor>
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="proprocf.exerd" partName="proprocf.exerd" title="proprocf.exerd" tooltip="C:\Users\guafi\OneDrive\문서\카카오톡 받은 파일\proprocf\proprocf.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/Users/guafi/OneDrive/문서/카카오톡%20받은%20파일/proprocf/proprocf.exerd"/>
 </editor>
 </editors>
 <views>
@@ -173,6 +177,7 @@
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/guafi/Downloads/BBOOLRae0.2.exerd"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/guafi/Downloads/boolae0.3.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/test/member.exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/guafi/OneDrive/문서/카카오톡%20받은%20파일/proprocf/proprocf.exerd"/>
 </editors>
 <item historyLabel="guestbook.exerd" index="0"/>
 <item historyLabel="bboolrae.exerd" index="1"/>
@@ -185,7 +190,8 @@
 <item historyLabel="guestbook.exerd" index="3"/>
 <item historyLabel="copy_of_bboolrae.exerd" index="2"/>
 <item historyLabel="boolae0.3.exerd" index="5"/>
-<item active="true" historyLabel="member.exerd" index="6"/>
+<item historyLabel="member.exerd" index="6"/>
+<item active="true" historyLabel="proprocf.exerd" index="7"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -203,6 +209,12 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="proprocf.exerd" tooltip="C:\Users\guafi\OneDrive\문서\카카오톡 받은 파일\proprocf\proprocf.exerd">
+<persistable uri="file:/C:/Users/guafi/OneDrive/문서/카카오톡%20받은%20파일/proprocf/proprocf.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="adver_ddl.sql" tooltip="C:\Users\guafi\git\Guafindel2019\sql\adver_ddl.sql">
+<persistable uri="file:/C:/Users/guafi/git/Guafindel2019/sql/adver_ddl.sql"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="member.exerd" tooltip="test/member.exerd">
 <persistable path="/test/member.exerd"/>
 </file>

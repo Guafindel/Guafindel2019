@@ -79,7 +79,7 @@ public class GbookRegistService implements GbookService {
 
 		dao = template.getMapper(GbookSessionDao.class);
 
-		char chk = dao.select(gId) == null ? 'Y' : 'N';
+		char chk = dao.selectById(gId) == null ? 'Y' : 'N';
 
 		return chk;
 	}

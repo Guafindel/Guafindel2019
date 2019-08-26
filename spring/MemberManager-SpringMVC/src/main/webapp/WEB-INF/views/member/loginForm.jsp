@@ -73,7 +73,7 @@
 
 						<!-- Modal body -->
 						<div class="modal-body">
-							<input type="text" 
+							
 						</div>
 
 						<!-- Modal footer -->

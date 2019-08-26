@@ -2,47 +2,121 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.guafindel.gb.gbook.dao.GbookSessionDao">
-				
 
-	<resultMap type="com.guafindel.gb.gbook.domain.Gbook" id="gbookResultMap">
-	
+
+	<resultMap type="com.guafindel.gb.gbook.domain.Gbook"
+		id="gbookResultMap">
+
 		<id property="idx" column="idx" />
-		<result property="gId" column="gId"/>
-		<result property="gPw" column="gPw"/>
-		<result property="gName" column="gName"/>
-		<result property="gPhoto" column="gPhoto"/>
-		<result property="regDate" column="date"/>
+		<result property="gId" column="gId" />
+		<result property="gPw" column="gPw" />
+		<result property="gName" column="gName" />
+		<result property="gPhoto" column="gPhoto" />
+		<result property="regDate" column="date" />
+		<result property="verify" column="verify" />
+		<result property="code" column="code" />
 
 	</resultMap>
 
 	<!-- 회원 가입 -->
-	<insert id ="insert" parameterType="com.guafindel.gb.gbook.dao.GbookSessionDao">
+	<insert id="insert"
+		parameterType="com.guafindel.gb.gbook.dao.GbookSessionDao">
 		INSERT INTO GUAFINDEL_DB.GBOOK (GID, GPW, GNAME, GPHOTO)
 		VALUES(#{gId}, #{gPw}, #{gName}, #{gPhoto})
 	</insert>
-	
+
 	<!-- 전체 회원 리스트 -->
 	<select id="selectAllList" resultMap="gbookResultMap">
-		SELECT * FROM GUAFINDEL_DB.GBOOK ORDER BY IDX
+		SELECT * FROM
+		GUAFINDEL_DB.GBOOK ORDER BY IDX
 	</select>
-	
+
 	<!-- 회원정보 수정을 위한 idx로 회원 타겟 설정 하기 -->
 	<select id="selectByIdx" resultMap="gbookResultMap">
-		SELECT * FROM GUAFINDEL_DB.GBOOK WHERE IDX = #{idx}
+		SELECT * FROM
+		GUAFINDEL_DB.GBOOK WHERE IDX = #{idx}
 	</select>
-	
+
+	<!-- 회원 로그인을 위한 아이디로 회원 찾기 -->
+	<select id="selectById" resultMap="gbookResultMap">
+		SELECT * FROM
+		GUAFINDEL_DB.GBOOK WHERE gId=#{id}
+	</select>
+
 	<!-- 타겟 설정한 회원의 정보 수정하기 -->
-	<update id="update" parameterType="com.guafindel.gb.gbook.domain.Gbook">
-		UPDATE GUAFINDEL_DB.GBOOK SET GNAME=#{gName}, GPW=#{gPw}, GPHOTO=#{gPhoto} WHERE IDX=#{idx}
+	<update id="update"
+		parameterType="com.guafindel.gb.gbook.domain.Gbook">
+		UPDATE GUAFINDEL_DB.GBOOK SET GNAME=#{gName},
+		GPW=#{gPw}, GPHOTO=#{gPhoto} WHERE IDX=#{idx}
 	</update>
-	
+
 	<!-- 회원정보 삭제하기 -->
 	<delete id="delete">
 		DELETE FROM GUAFINDEL_DB.GBOOK WHERE IDX=#{idx}
 	</delete>
-	
-	<select id="select" resultMap="gbookResultMap">
-		SELECT * FROM GUAFINDEL_DB.GBOOK WHERE GID = #{gId}
+
+	<!-- 회원 리스트의 개수 : 검색을 위해 동적쿼리 적용 -->
+	<select id="selectTotalCount"
+		parameterType="com.guafindel.gb.gbook.domain.SearchParam"
+		resultType="int">
+		SELECT COUNT(*) FROM GUAFINDEL_DB.GBOOK
+
+		<where>
+			<if test="stype != null">
+				<if test="stype == 'noth'">
+					gId LIKE CONCAT('%', #{keyword}, '%') or gName LIKE
+					CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="stype == 'id'">
+					gId LIKE CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="stype == 'name'">
+					gName LIKE CONCAT('%', #{keyword}, '%')
+				</if>
+			</if>
+		</where>
+
 	</select>
-	
+
+	<!-- 회원 리스트 : 검색을 위해 동적쿼리 적용 -->
+	<select id="selectList" parameterType="map"
+		resultMap="gbookResultMap">
+		SELECT * FROM GUAFINDEL_DB.GBOOK
+		<where>
+			<if test="search != null">
+				<if test="search.stype == 'both'">
+					<include refid="whereId" />
+					<include refid="whereName" />
+					<!-- uid LIKE CONCAT('%', #{search.keyword}, '%') or uname LIKE CONCAT('%', 
+						#{search.keyword}, '%') -->
+				</if>
+				<if test="search.stype == 'id'">
+					<include refid="whereId" />
+					<!-- uid LIKE CONCAT('%', #{search.keyword}, '%') -->
+				</if>
+				<if test="search.stype == 'name'">
+					<include refid="whereName" />
+					<!-- uname LIKE CONCAT('%', #{search.keyword}, '%') -->
+				</if>
+			</if>
+		</where>
+		<!-- limit #{param1}, #{param2} -->
+		limit #{index}, #{count}
+	</select>
+
+	<sql id="whereId">
+		or gId LIKE CONCAT('%', #{search.keyword}, '%')
+	</sql>
+
+	<sql id="whereName">
+		or gName LIKE CONCAT('%', #{search.keyword}, '%')
+	</sql>
+
+	<!-- 이메일 인증 -->
+	<update id="verify">
+		UDATE GUAFINDEL_DB.GBOOK SET verify = 'Y' WHERE
+		gId=#{param1} and code=#{param2}
+	</update>
+
+
 </mapper>
