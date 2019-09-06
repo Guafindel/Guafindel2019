@@ -33,8 +33,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- e_num으로 찾기 -->
-	<select id="selectByNum">
-		SELECT * FROM guafindel_db.event WHERE e_id = #{e_id} 
+	<select id="selectByNum" resultMap="resultEventInfo">
+		SELECT * FROM guafindel_db.event WHERE e_num = #{e_num} 
 	</select>
 	
 	<!-- 게시글 수정 -->
@@ -46,5 +46,52 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="eventDelete">
 		DELETE FROM guafindel_db.event WHERE e_num = #{e_num}
 	</delete>
+	
+	<!-- 회원 리스트 구하기 -->
+	<select id="selectList" parameterType="map" resultMap="resultEventInfo">
+		SELECT * FROM guafindel_db.event
+		<where>
+			<if test="search != null">
+				<if test="search.stype == 'both'">
+					<include refid="whereId"/>
+					<include refid="whereContent"/>
+				</if>
+				<if test="search.stype == 'id'">
+					<include refid="whereId"/>
+				</if>
+				<if test="search.stype == 'content'">
+					<include refid="whereContent"/>
+				</if>
+			</if>
+		</where> 
+		LIMIT #{index}, #{count}
+	</select>
+	
+	<!-- 회원 리스트의 개수 -->
+	<select id="selectTotalCount" parameterType="com.guafindel.event.domain.SearchParam" resultType="int">
+		SELECT COUNT(*) FROM guafindel_db.event
+		<where>
+			<if test="stype != null">
+				<if test="stype == 'both'">
+					e_id LIKE CONCAT('%', #{keyword}, '%') or e_content LIKE CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="stype == 'id'">
+					e_id LIKE CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="stype == 'content'">
+					e_content LIKE CONCAT('%', #{keyword}, '%')
+				</if>
+			</if>
+		</where>
+	</select>
+	
+	<sql id="whereId">
+		or e_id LIKE CONCAT('%', #{search.keyword}, '%')
+	</sql>
+	
+	<sql id="whereContent">
+		or e_content LIKE CONCAT('%', #{search.keyword}, '%')
+	</sql>
+	
 	
 </mapper>

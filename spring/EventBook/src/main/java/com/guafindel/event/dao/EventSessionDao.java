@@ -1,8 +1,10 @@
 package com.guafindel.event.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.guafindel.event.domain.EventInfo;
+import com.guafindel.event.domain.SearchParam;
 
 public interface EventSessionDao {
 
@@ -16,13 +18,19 @@ public interface EventSessionDao {
 	public EventInfo selectById(String e_id);
 	
 	//e_num으로 찾기 
-	public EventInfo selectByNum(String e_num);
+	public EventInfo selectByNum(int e_num);
 	
 	//게시글 수정
 	public int eventUpdate(EventInfo eventInfo);
 	
 	//게시글 삭제
-	public int eventDelete(EventInfo eventInfo);
+	public int eventDelete(int e_num);
+	
+	//게시물의 개수
+	public int selectTotalCount(SearchParam searchParam);
+	
+	//보여줄 개수 정해서 리스트 보여주기
+	public List<EventInfo> selectList(Map<String, Object> params);
 	
 	
 }

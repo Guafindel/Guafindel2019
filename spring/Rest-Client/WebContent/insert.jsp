@@ -40,6 +40,10 @@ div.card {
 	<div class="container">
 		<h1 class="display-6">회원 가입</h1>
 		<hr>
+		<div align="right">
+		<button class="btn btn-info" onclick="location.href='list.jsp'">Post</button>
+		</div>
+		<hr>
 
 		<form id="form">
 			<div class="form-group">

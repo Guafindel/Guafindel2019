@@ -210,6 +210,107 @@
 			<script src="js/skel.min.js"></script>
 			<script src="js/util.js"></script>
 			<script src="js/main.js"></script>
+			
+			
+			
+			
+			
+			
+			
+			
+	<script>
+		$(document).ready(function() {
+
+			$('#writeForm').submit(function() {
+				$.ajax({
+					url  'httplocalhost8080cultureforkreview',
+					type  'POST',
+					data  JSON.stringify({
+						 r_title  $('#writeArea #r_title').val(),
+						 r_content  $('#writeArea #r_content').val(),
+						 u_id  $('#writeArea #u_id').val(),
+						 r_star  $('#writeArea #r_star').val(),
+						 r_info  $('#writeArea #r_info').val()
+					}),
+					contentType  'applicationjson; charset=utf-8', //전달해줄 때 타입
+					dataType  'json', //데이터타입
+					success  function(data) {
+						alert(JSON.stringify(data));
+					}
+				});
+				return false;
+			});
+
+		});
+
+		 //api 검색창 열기
+		$('#showSearchBtn').click(function() {
+			$('#apiSearchArea').css('display', 'block');
+		});
+
+		 창 닫기
+		$('#apiSearchClose').click(function() {
+			$('#apiSearchArea').css('display', 'none');
+		});
+
+		function apiSearch() {
+			var serviceKey = 'JLSkzmHpfUzFKrIc6Rj3ctOhrcxkpJseabRpcv2orln2GXYDEjUztm4fRtQOCNn9rBWJTNhA3Os79GYiZkJEIA%3D%3D';
+			var keyword = $('#keyword').val();
+			var from = '20130101';
+			var to = '20190827';
+			var url = 'httpwww.culture.go.kropenapirestpublicperformancedisplaysperiodserviceKey=' + serviceKey + '&sortStdr=1&RequestTime=&from=' + from + '&to=' + to + '&cPage=1&rows=20&place=1&keyword=' + keyword;
+
+			$.ajax({
+				url  url,
+				type  'GET',
+				dataType  'xml', 데이터타입
+				success  function(data) {
+					alert(data);
+					var html='table';
+					html+='trtd분류tdtd공연명tdtd공연기간tdtr';
+					
+					$(data).find('perforList').each(
+							function(index) {
+								var title = $(this).find('title').text();
+								var seq = $(this).find('seq').text();
+								var startDate = $(this).find('startDate').text();
+								var endDate = $(this).find('endDate').text();
+								var realmName = $(this).find('realmName').text();
+								var area = $(this).find('area').text();
+								var thumbnail = $(this).find('thumbnail').text();
+
+								alert(seq + '' + title + '' + area + ''+ realmName);
+								html+='trtd'+realmName+'tdtda onclick=select('+seq+')'+title+'atdtd'+startDate+'~'+endDate+'tdtr';
+								
+					});
+					html+='table';
+					$('#searchList').html(html);
+				}
+			});
+
+		}
+		
+		function select(seq) {
+			alert(seq);
+			$('#r_info').val(seq);
+			$('#apiSearchArea').css('display', 'none');
+		}
+
+		 //나중에 링크 누르면 이거 들어가게 하기
+	</script>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 
 	</body>
 </html>

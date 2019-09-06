@@ -31,6 +31,10 @@
 	<div class="container">
 		<h1 class="display-6">회원 리스트</h1>
 		<hr>
+		<div align="right">
+		<button class="btn btn-info" onclick="location.href='insert.jsp'">Post</button>
+		</div>
+		<hr>
 		<table class="table" style="width: 100%">
 			<thead class="thead-light">
 				<tr>

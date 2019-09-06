@@ -17,7 +17,7 @@ public class WriteEventService implements EventManagerService {
 	
 	private EventSessionDao dao;
 	
-	public int eventInsert(HttpServletRequest request, EventInfo eventInfo) {
+	public int insertEvent(HttpServletRequest request, EventInfo eventInfo) {
 		
 		dao = template.getMapper(EventSessionDao.class);
 		
