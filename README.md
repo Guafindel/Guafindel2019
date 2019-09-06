@@ -15,3 +15,5 @@ https://github.com/Guafindel/Guafindel2019/tree/master/jsp0/jsp01/WebContent/mem
 https://github.com/Guafindel/Guafindel2019/tree/master/jsp0/jsp01/WebContent/won_member = 회원관리
 
 https://github.com/Guafindel/Guafindel2019/tree/master/spring/GuestBookSpringMVC = 방명록(스프링)
+
+https://github.com/Guafindel/Guafindel2019/tree/master/spring/EventBook = 문화 프로젝트 이벤트 담당 부분
