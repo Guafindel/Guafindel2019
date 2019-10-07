@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- interface의 full name을 namespace의 속성으로 사용 : 필수 -->
+<mapper namespace="com.ngh.donate.dao.DonateDaoInterface">
+
+	<!-- select 결과 메핑을 위한 resultMap 설정 -->
+	<resultMap id="resultDonateInfo"
+		type="com.ngh.donate.domain.DonateListInfo">
+		<id property="d_index" column="d_index" />
+		<result property="d_money" column="d_money" />
+		<result property="d_type" column="d_type" />
+		<result property="d_date" column="d_date"/> 
+		<result property="id" column="id" />
+		<result property="d_account" column="d_account" />
+	</resultMap>
+	
+	<insert id="insert"
+		parameterType="com.ngh.donate.domain.DonateInfo">
+		insert into petsite.donation(d_money, d_type,id, d_account) values(#{d_money},#{d_type},#{id},#{d_account})
+	</insert>
+	
+	<!-- 회원 리스트의 개수 : 검색을 위해 동적쿼리 적용 -->
+	<select id="getListCount"
+		parameterType="map"
+		resultType="int">
+		
+		select count(*) from donation
+
+		<where>
+			id = #{uid}
+			<if test="sp != null">
+				<if test="sp.account != '' ">
+					<include refid="whereAccount"/>
+				</if>
+				<if test="sp.day != '' ">				
+					<include refid="whereDay"/>
+				</if>
+			</if>
+		</where>
+
+	</select>
+
+	<!-- 회원 리스트 : 검색을 위해 동적쿼리 적용 -->
+	
+	<select id="getList" parameterType="map"
+		resultMap="resultDonateInfo">
+		
+		SELECT * FROM donation 
+		
+		<where>
+			id = #{uid}
+			<if test="sp != null">
+				<if test="sp.account != '' ">
+					<include refid="whereAccount"/>
+				</if>
+				<if test="sp.day != '' ">				
+					<include refid="whereDay"/>
+				</if>
+			</if>
+		</where>
+		<!-- limit #{param1}, #{param2} -->
+		limit #{startN}, #{endN}
+	</select>
+		
+	<sql id="whereAccount">
+		and d_account LIKE CONCAT('%', #{sp.account}, '%')
+	</sql>
+	<sql id="whereDay">
+		and d_date >= #{sp.day}
+	</sql>
+	
+	<!-- 삭제 -->
+	<delete id="delete">
+		delete from donation where d_index=#{index}
+	</delete>
+	
+	<!-- 편집 -->
+	<update id="edit"
+		parameterType="com.ngh.donate.domain.DonationEditInfo">
+		update donation set d_money=#{d_money}, d_type=#{d_type},
+		d_account=#{d_account} where d_index=#{d_index}
+	</update>
+
+</mapper>

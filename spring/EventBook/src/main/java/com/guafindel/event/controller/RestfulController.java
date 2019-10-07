@@ -1,21 +1,8 @@
 package com.guafindel.event.controller;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
+
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.io.IOUtils;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -74,8 +61,8 @@ public class RestfulController {
 
 	/*
 	 * @CrossOrigin
-	 * 
-	 * @GetMapping("/{e_id}") public ResponseEntity<EventInfo>
+	 * @GetMapping("/{e_id}") 
+	 * public ResponseEntity<EventInfo>
 	 * getEventList(@PathVariable("e_id") String e_id) {
 	 * 
 	 * EventInfo list = listService.selectById(e_id);
@@ -88,7 +75,8 @@ public class RestfulController {
 
 	@CrossOrigin
 	@GetMapping
-	public ResponseEntity<ListViewData> eventList(@RequestParam(value = "p", defaultValue = "1") int pageNumber,
+	public ResponseEntity<ListViewData> eventList(
+			@RequestParam(value = "p", defaultValue = "1") int pageNumber,
 			@RequestParam(value = "stype", required = false) String stype,
 			@RequestParam(value = "keyword", required = false) String keyword) {
 

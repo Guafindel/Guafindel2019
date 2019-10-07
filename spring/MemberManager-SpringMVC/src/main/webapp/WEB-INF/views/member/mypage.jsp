@@ -44,7 +44,7 @@
 				<div class="col-sm-4">
 					<div class="card" style="width: 100%">
 						<img style="height: 450px" alt="Card image"
-							"class="mx-auto d-block" alt="회원 사진"
+							class="mx-auto d-block" alt="회원 사진"
 							src="<c:url value="/uploadfile/userphoto/${logininfo.mPhoto}"/>">
 
 						<div class="card-body">
