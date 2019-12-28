@@ -239,8 +239,8 @@
 				alert($('#insertForm').serialize());
 
 				$.ajax({
-					//url : 'http://localhost:8080/event/events/board',
-					url : 'http://ec2-13-209-47-124.ap-northeast-2.compute.amazonaws.com:8080/EventBook/events/board',
+					url : 'http://localhost:8080/event/events/board',
+					//url : 'http://ec2-13-209-47-124.ap-northeast-2.compute.amazonaws.com:8080/EventBook/events/board',
 					type : 'POST',
 					data : $('#insertForm').serialize(),
 					success : function(data) {
@@ -259,8 +259,8 @@
 				
 				$.ajax({
 					
-					//url : 'http://localhost:8080/event/events/board/' + $('#e_num1').val(),
-					url : 'http://ec2-13-209-47-124.ap-northeast-2.compute.amazonaws.com:8080/EventBook/events/board/' + $('#e_num1').val(),
+					url : 'http://localhost:8080/event/events/board/' + $('#e_num1').val(),
+					//url : 'http://ec2-13-209-47-124.ap-northeast-2.compute.amazonaws.com:8080/EventBook/events/board/' + $('#e_num1').val(),
 					type : 'PUT',
 					data : JSON.stringify({e_num:$('#e_num1').val(), e_id:$('#e_id1').val(), e_content:$('#e_content1').val(), e_info:$('#e_info1').val()}),
 					contentType : 'application/json; charset=utf-8',
@@ -280,8 +280,8 @@
 		function list() {
 			
 			$.ajax({
-				//url : 'http://localhost:8080/event/events/board',
-				url : 'http://ec2-13-209-47-124.ap-northeast-2.compute.amazonaws.com:8080/EventBook/events/board',
+				url : 'http://localhost:8080/event/events/board',
+				//url : 'http://ec2-13-209-47-124.ap-northeast-2.compute.amazonaws.com:8080/EventBook/events/board',
 				type : 'GET',
 				data: {},
 				success : function(data){
@@ -310,8 +310,8 @@
 		function edit(e_num) {
 			 
 			$.ajax({  
-				//url : 'http://localhost:8080/event/events/board/' + e_num,
-				url : 'http://ec2-13-209-47-124.ap-northeast-2.compute.amazonaws.com:8080/EventBook/events/board/' + e_num,
+				url : 'http://localhost:8080/event/events/board/' + e_num,
+				//url : 'http://ec2-13-209-47-124.ap-northeast-2.compute.amazonaws.com:8080/EventBook/events/board/' + e_num,
 				type : 'GET',
 				success : function(data) {
 					alert(data);
@@ -329,8 +329,8 @@
 			if (confirm('Are you sure you want to delete it?')) {
 				
 				$.ajax({
-					//url : 'http://localhost:8080/event/events/board/' + e_num,
-					url : 'http://ec2-13-209-47-124.ap-northeast-2.compute.amazonaws.com:8080/EventBook/events/board/' + e_num,
+					url : 'http://localhost:8080/event/events/board/' + e_num,
+					//url : 'http://ec2-13-209-47-124.ap-northeast-2.compute.amazonaws.com:8080/EventBook/events/board/' + e_num,
 					type : 'DELETE',
 					success : function(data) {
 						alert(data);

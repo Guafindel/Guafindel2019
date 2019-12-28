@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="app">
+		<span>{{ el1 }} 곱하기 {{ el2 }} 는 ?</span>
+		<form>
+			<input type="number">
+			<button>입력</button>
+		</form>
+		<span>{{ result }}</span>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				el1: Math.ceil(Math.random() * 9),
+				el2: Math.ceil(Math.random() * 9),
+				value: '',
+				result: '',
+			},
+			methods: {
+				onClickButton(){
+					
+				},
+			},
+		})
+	</script>
+</body>
+</html>
